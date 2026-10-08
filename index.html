@@ -171,17 +171,33 @@
         <h1>bcc Challenge</h1>
         <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 & 10)</p>
         
-        <!-- Viewport Workspace Root Wrapper -->
-        <div id="app-view">
-            <!-- Starting Menu Content -->
-            <div id="difficulty-screen">
-                <p>Select your challenge level to begin:</p>
-                <div class="button-group">
-                    <button class="btn easy" onclick="startQuiz('easy')">Part A (Easy)</button>
-                    <button class="btn medium" onclick="startQuiz('medium')">Part B (Medium)</button>
-                    <button class="btn hard" onclick="startQuiz('hard')">Part C (Hard)</button>
-                </div>
+        <!-- Difficulty Selection Screen -->
+        <div id="difficulty-screen">
+            <p>Select your challenge level to begin:</p>
+            <div class="button-group">
+                <button class="btn easy" onclick="startQuiz('easy')">Part A (Easy)</button>
+                <button class="btn medium" onclick="startQuiz('medium')">Part B (Medium)</button>
+                <button class="btn hard" onclick="startQuiz('hard')">Part C (Hard)</button>
             </div>
+        </div>
+
+        <!-- Flashcard Display Screen (Safely held directly in HTML structure) -->
+        <div id="flashcard-screen" class="hidden">
+            <div class="card-meta">
+                <span id="level-badge" class="badge">Easy</span>
+            </div>
+            
+            <div class="card">
+                <p id="question-text">Question goes here...</p>
+                <p id="answer-text" class="hidden-answer">Answer goes here...</p>
+            </div>
+
+            <div class="action-buttons">
+                <button id="reveal-btn" class="btn action" onclick="revealAnswer()">Reveal Answer</button>
+                <button id="next-btn" class="btn next hidden" onclick="nextQuestion()">Next Question</button>
+            </div>
+
+            <button class="btn back" onclick="goBack()">&larr; Choose Another Level</button>
         </div>
     </div>
 
@@ -210,8 +226,8 @@
                     a: "OFFICIAL ANSWER: (C) TAKECARE\n\nEXPLANATION: Separating the binary segments carefully from left to right yields: \n1(T), 0010(A), 0110(K), 00(E), 1010(C), 0010(A), 1110(R), 00(E). Combined, it reads TAKECARE." 
                 },
                 { q: "STORY: A printer prints documents in black (B) and white (W). To save ink, it automatically replaces blocks of identical letters: 'BBBWW' becomes '3B2W'.\n\nQUESTION: What code does the printer generate for 'BBBBBBW'?\n\n(A) 6B1W\n(B) B6W1\n(C) 6BW\n(D) 7BW", a: "OFFICIAL ANSWER: (A) 6B1W\n\nEXPLANATION: There are 6 consecutive 'B's followed by 1 'W'. Run-length compression outputs counts directly before symbols." },
-                { q: "STORY: 4 beavers (A, B, C, D) line up by height. Beaver A is shorter than B. Beaver C is taller than B. Beaver D is shorter than A.\n\nQUESTION: Who is the shortest beaver in the line?\n\n(A) A\n(B) B\n(C) C\n(D) D", a: "OFFICIAL ANSWER: (D) D\n\nEXPLANATION: Setting up inequalities: D < A < B < C. Therefore, D is at the bottom of the height hierarchy." },
-                { q: "STORY: A system tracks a robotic bug on a map. An arrow instruction code shifts its orientation: 'R' turns it 90 degrees clockwise, 'L' turns it 90 degrees counter-clockwise.\n\nQUESTION: If the bug faces North and receives the instruction path 'R-R-L', which direction is it facing at the end?\n\n(A) East\n(B) South\n(C) West\n(D) North", a: "OFFICIAL ANSWER: (A) East\n\nEXPLANATION: North turned right (R) becomes East. Turned right again (R) becomes South. Turned left (L) returns it back to East." },
+{ q: "STORY: 4 beavers (A, B, C, D) line up by height. Beaver A is shorter than B. Beaver C is taller than B. Beaver D is shorter than A.\n\nQUESTION: Who is the shortest beaver in the line?\n\n(A) A\n(B) B\n(C) C\n(D) D", a: "OFFICIAL ANSWER: (D) D\n\nEXPLANATION: Setting up height parameters: D is shorter than A, who is shorter than B, who is shorter than C. Therefore, D is the absolute shortest." },
+{ q: "STORY: A system tracks a robotic bug on a map. An arrow instruction code shifts its orientation: 'R' turns it 90 degrees clockwise, 'L' turns it 90 degrees counter-clockwise.\n\nQUESTION: If the bug faces North and receives the instruction path 'R-R-L', which direction is it facing at the end?\n\n(A) East\n(B) South\n(C) West\n(D) North", a: "OFFICIAL ANSWER: (A) East\n\nEXPLANATION: North turned right (R) becomes East. Turned right again (R) becomes South. Turned left (L) returns it back to East." },
 { q: "STORY: To unlock a digital box, a beaver types a pattern sequence: [Circle, Triangle, Square]. The interface error shifts every item 1 position to the left cyclically.\n\nQUESTION: What sequence pattern is output on screen if the beaver enters [Circle, Triangle, Square]?\n\n(A) [Triangle, Square, Circle]\n(B) [Square, Circle, Triangle]\n(C) [Circle, Triangle, Square]\n(D) [Triangle, Circle, Square]", a: "OFFICIAL ANSWER: (A) [Triangle, Square, Circle]\n\nEXPLANATION: Shifting left moves Circle to the trailing index position, pulling Triangle to the front and Square to the middle." },
 { q: "STORY: A display grid uses transparent layered files: Background, Layer 1, Layer 2, Foreground. An image component sits on Layer 1, and an overlapping element sits on Layer 2.\n\nQUESTION: Which element masks out the visibility of the other where their coordinates intersect?\n\n(A) The element on Layer 1\n(B) The element on Layer 2\n(C) Neither\n(D) Both", a: "OFFICIAL ANSWER: (B) The element on Layer 2\n\nEXPLANATION: Objects assigned to a higher render depth index (Layer 2) always overlay and obscure content situated on rendering channels below them (Layer 1)." },
 { q: "STORY: A simple messaging rule lets a sender flag an urgency level from 1 (Low) to 5 (Critical). Lower numbers must yield priority lanes to higher numbers.\n\nQUESTION: Which alert stream sequence executes last under this structural priority logic?\n\n(A) Level 5\n(B) Level 3\n(C) Level 1\n(D) Level 4", a: "OFFICIAL ANSWER: (C) Level 1\n\nEXPLANATION: Because higher values claim processing lanes immediately, the lowest priority value (Level 1) stays queued until last." },
@@ -248,7 +264,7 @@ a: "OFFICIAL ANSWER: (B) Tuesday\n\nEXPLANATION: This is a set intersection oper
 { q: "STORY: An array tracks positions 1 through 5 in a circular pattern. Moving past position 5 loops the pointer back to index position 1.\n\nQUESTION: If a process starts scanning at position 3 and advances forward 4 index tracking slots, what position does it target?\n\n(A) Position 1\n(B) Position 2\n(C) Position 3\n(D) Position 4", a: "OFFICIAL ANSWER: (B) Position 2\n\nEXPLANATION: Counting positions circularly: 3 -> 4 -> 5 -> 1 -> 2. The fourth incremental step hits index position 2." },
 { q: "STORY: A storage container holds 3 boxes stacked vertically: Red (bottom), Green (middle), Blue (top). You can only interact with the top box.\n\nQUESTION: What box sequence remains inside the stack container if you perform 1 remove operation followed by inserting a Yellow box?\n\n(A) Red, Green, Yellow\n(B) Yellow, Green, Red\n(C) Red, Yellow, Blue\n(D) Green, Blue, Yellow", a: "OFFICIAL ANSWER: (A) Red, Green, Yellow\n\nEXPLANATION: Removing an item extracts Blue from the top. Inserting Yellow pushes it onto the newly exposed Green box, changing the stack to Red (bottom), Green (middle), Yellow (top)." },
 { q: "STORY: A simple encoding table switches characters: X -> M, Y -> N, Z -> O. \n\nQUESTION: What is the encoded output string if a user parses 'YXZ'?\n\n(A) NMO\n(B) MON\n(C) OMN\n(D) NOM", a: "OFFICIAL ANSWER: (A) NMO\n\nEXPLANATION: Mapping variables directly via lookup properties: Y becomes N, X becomes M, and Z becomes O. Combining them gives NMO." },
-{ q: "STORY: A sorting machine processes numbers. It checks pairs from left to right and swaps them if the left number is strictly greater than the right number. Input array: [5, 2, 9, 1].\n\nQUESTION: What is the array state after the very first comparison and conditional swap pass occurs on the first pair?\n\n(A) [2, 5, 9, 1]\n(B) [5, 2, 1, 9]\n(C) [1, 2, 5, 9]\n(D) [5, 9, 2, 1]", a: "OFFICIAL ANSWER: (A) [2, 5, 9, 1]\n\nEXPLANATION: The machine evaluates the first pair index (5 and 2). Because 5 > 2, it executes a swap instruction, updating the memory block to [2, 5, 9, 1]." },
+{ q: "STORY: A sorting machine processes numbers. It checks pairs from left to right and swaps them if the left number is strictly greater than the right number. Input array sequence is [5, 2, 9, 1].\n\nQUESTION: What is the array state after the very first comparison and conditional swap pass occurs on the first pair?\n\n(A) [2, 5, 9, 1]\n(B) [5, 2, 1, 9]\n(C) [2, 5, 1, 9]\n(D) [5, 2, 9, 1]", a: "OFFICIAL ANSWER: (A) [2, 5, 9, 1]\n\nEXPLANATION: The machine evaluates the first pair index (5 and 2). Because 5 > 2, it executes a swap instruction, updating the memory block to [2, 5, 9, 1]." },
 { q: "STORY: A scheduling logic grid tracks meetings: Room 1 (1:00-2:00), Room 2 (1:30-2:30). A coordinator needs a quiet space running continuously from 1:15 to 1:45.\n\nQUESTION: Which room allocation slot conflicts with this tracking request?\n\n(A) Room 1\n(B) Room 2\n(C) Both Room 1 and Room 2\n(D) Neither", a: "OFFICIAL ANSWER: (C) Both Room 1 and Room 2\n\nEXPLANATION: The request window (1:15-1:45) overlaps with both Room 1's duration and Room 2's booking interval, triggering a system scheduling conflict on both lines." },
 { q: "STORY: A variable mapping rule replaces sequences: every single occurrence of the string 'ab' is automatically expanded into 'bba'.\n\nQUESTION: What does the data string 'abc' transform into after 1 parsing translation sweep completes?\n\n(A) bbac\n(B) abbc\n(C) cabb\n(D) bbaa", a: "OFFICIAL ANSWER: (A) bbac\n\nEXPLANATION: The system targets the match segment 'ab' and rewrites it to 'bba'. The trailing symbol 'c' is unaffected, yielding bbac." }
 ],
@@ -289,26 +305,18 @@ var currentLevel = '';
 var currentQuestionObj = null;
 function startQuiz(level) {
 currentLevel = level;
+// 1. Instantly hide the landing menu layout block
+document.getElementById('difficulty-screen').classList.add('hidden');
+// 2. Clear out any old hidden state modifiers and open the game viewport
+var flashcardScreen = document.getElementById('flashcard-screen');
+flashcardScreen.classList.remove('hidden');
+// 3. Render the target context descriptors
 var labelText = 'Part A (Easy)';
 if (level === 'medium') { labelText = 'Part B (Medium)'; }
 else if (level === 'hard') { labelText = 'Part C (Hard)'; }
-var root = document.getElementById('app-view');
-root.innerHTML = [
-'',
-'',
-'' + labelText + '',
-'',
-'',
-'Loading puzzle...',
-'',
-'',
-'',
-'Reveal Answer',
-'Next Question',
-'',
-'← Choose Another Level',
-''
-].join('');
+var badge = document.getElementById('level-badge');
+badge.innerText = labelText;
+badge.className = 'badge ' + level;
 nextQuestion();
 }
 function nextQuestion() {
@@ -328,15 +336,7 @@ document.getElementById('reveal-btn').classList.add('hidden');
 document.getElementById('next-btn').classList.remove('hidden');
 }
 function goBack() {
-var root = document.getElementById('app-view');
-root.innerHTML = [
-'',
-'Select your challenge level to begin:',
-'',
-'Part A (Easy)',
-'Part B (Medium)',
-'Part C (Hard)',
-'',
-''
-].join('');
+// Swap display visibility maps back to initial layout states
+document.getElementById('flashcard-screen').classList.add('hidden');
+document.getElementById('difficulty-screen').classList.remove('hidden');
 }
