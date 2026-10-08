@@ -35,10 +35,22 @@
             z-index: 10;
         }
 
+        /* Version Indicator Tag */
+        .version-tag {
+            position: absolute;
+            top: 12px;
+            left: 15px;
+            font-size: 0.7rem;
+            color: #bbb;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
         h1 {
             margin-bottom: 5px;
             color: #1a1a1a;
             font-size: 2rem;
+            margin-top: 10px;
         }
 
         .subtitle {
@@ -163,6 +175,9 @@
 <body>
 
     <div class="game-container">
+        <!-- Version Tracker Marker Line -->
+        <div class="version-tag">Version 2.0</div>
+
         <h1>bcc Challenge</h1>
         <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 & 10)</p>
         
@@ -202,221 +217,236 @@
         <!-- EASY POOL (15 Questions) -->
         <div class="easy-pool">
             <div>
-                <p class="qs">STORY: Beaver Robot can say sentences containing exactly 3 words. \n• Word 1 comes from Box 1: [CAN, BEAVERS, I]\n• Word 2 comes from Box 2: [YOU, CAN, LOVE]\n• Word 3 comes from Box 3: [HELP, SWIM, YOU]\n\nQUESTION: Which sentence below CANNOT be said by Beaver Robot?\n\n(A) CAN YOU HELP\n(B) BEAVERS CAN SWIM\n(C) I LOVE YOU\n(D) YOU NEED ME</p>
-                <p class="as">OFFICIAL ANSWER: (D) YOU NEED ME\n\nEXPLANATION: The word 'ME' is chosen as the third word in Option D, but it is not available in Box 3. Therefore, Beaver Robot cannot say this sentence.</p>
+                <p class="qs">STORY: Beaver Robot can say sentences containing exactly 3 words. Word 1 comes from Box 1: [CAN, BEAVERS, I]. Word 2 comes from Box 2: [YOU, CAN, LOVE]. Word 3 comes from Box 3: [HELP, SWIM, YOU]. QUESTION: Which sentence below CANNOT be said by Beaver Robot? (A) CAN YOU HELP (B) BEAVERS CAN SWIM (C) I LOVE YOU (D) YOU NEED ME</p>
+                <p class="as">OFFICIAL ANSWER: (D) YOU NEED ME. EXPLANATION: The word ME is chosen as the third word in Option D, but it is not available in Box 3. Therefore, Beaver Robot cannot say this sentence.</p>
             </div>
             <div>
-                <p class="qs">STORY: Xena orders custom storage boxes. Each box is labeled with its exact mass in kilograms: [1kg, 2kg, 4kg, 8kg, 16kg]. \nTo order boxes totaling exactly 9 kilograms, she checks off the 1kg box and the 8kg box.\n\nQUESTION: How many check marks should she put on the form to order boxes totaling exactly 22 kilograms?\n\n(A) 1\n(B) 2\n(C) 3\n(D) 4</p>
-                <p class="as">OFFICIAL ANSWER: (C) 3\n\nEXPLANATION: To form 22 kg using only these sizes without any duplicates, she must combine 16kg + 4kg + 2kg = 22kg. This requires exactly 3 check marks.</p>
+                <p class="qs">STORY: Xena orders custom storage boxes. Each box is labeled with its exact mass in kilograms: [1kg, 2kg, 4kg, 8kg, 16kg]. To order boxes totaling exactly 9 kilograms, she checks off the 1kg box and the 8kg box. QUESTION: How many check marks should she put on the form to order boxes totaling exactly 22 kilograms? (A) 1 (B) 2 (C) 3 (D) 4</p>
+                <p class="as">OFFICIAL ANSWER: (C) 3. EXPLANATION: To form 22 kg using only these sizes without any duplicates, she must combine 16kg + 4kg + 2kg = 22kg. This requires exactly 3 check marks.</p>
             </div>
             <div>
-                <p class="qs">STORY: A clear circular tube contains five colored balls in this exact clockwise loop sequence: Blue, Pink, Red, Yellow, Green. The tube can be flipped or rotated, but the balls cannot squeeze past each other.\n\nQUESTION: Which of the following sequences is IMPOSSIBLE to see inside the tube?\n\n(A) Pink, Red, Yellow, Green, Blue\n(B) Green, Yellow, Red, Pink, Blue\n(C) Blue, Red, Pink, Yellow, Green\n(D) Red, Yellow, Green, Blue, Pink</p>
-                <p class="as">OFFICIAL ANSWER: (C) Blue, Red, Pink, Yellow, Green\n\nEXPLANATION: In a circular linked configuration, the relative adjacency must be preserved. Originally, Pink sits between Blue and Red. Option C positions Red directly between Blue and Pink, which physically breaks the loop order.</p>
+                <p class="qs">STORY: A clear circular tube contains five colored balls in this exact clockwise loop sequence: Blue, Pink, Red, Yellow, Green. The tube can be flipped or rotated, but the balls cannot squeeze past each other. QUESTION: Which of the following sequences is IMPOSSIBLE to see inside the tube? (A) Pink, Red, Yellow, Green, Blue (B) Green, Yellow, Red, Pink, Blue (C) Blue, Red, Pink, Yellow, Green (D) Red, Yellow, Green, Blue, Pink</p>
+                <p class="as">OFFICIAL ANSWER: (C) Blue, Red, Pink, Yellow, Green. EXPLANATION: In a circular linked configuration, the relative adjacency must be preserved. Originally, Pink sits between Blue and Red. Option C positions Red directly between Blue and Pink, which physically breaks the loop order.</p>
             </div>
             <div>
-                <p class="qs">STORY: A miracle plant grows in layers. Every day, each bud on the plant sprouts 1 new stem and 2 new outer buds. Two days after a seedling is planted, the miracle plant has 4 outer buds.\n\nQUESTION: How many days after a seedling is planted will the miracle plant have 16 outer buds?\n\n(A) 4\n(B) 6\n(C) 8\n(D) 16</p>
-                <p class="as">OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: The outermost bud quantity doubles cleanly every single day. Day 0 = 1 bud. Day 1 = 2 buds. Day 2 = 4 buds. Day 3 = 8 buds. Day 4 = 16 buds. It takes exactly 4 days.</p>
+                <p class="qs">STORY: A miracle plant grows in layers. Every day, each bud on the plant sprouts 1 new stem and 2 new outer buds. Two days after a seedling is planted, the miracle plant has 4 outer buds. QUESTION: How many days after a seedling is planted will the miracle plant have 16 outer buds? (A) 4 (B) 6 (C) 8 (D) 16</p>
+                <p class="as">OFFICIAL ANSWER: (A) 4. EXPLANATION: The outermost bud quantity doubles cleanly every single day. Day 0 = 1 bud. Day 1 = 2 buds. Day 2 = 4 buds. Day 3 = 8 buds. Day 4 = 16 buds. It takes exactly 4 days.</p>
             </div>
             <div>
-                <p class="qs">STORY: Xavier maps alphabet characters to fixed binary numbers:\nT = 1, E = 00, A = 0010, K = 0110, C = 1010, R = 1110.\n\nQUESTION: Which of the following words matches this complete sent binary string: 1001001100010100010111000 ?\n\n(A) TEACRATE\n(B) EATCAKE\n(C) TAKECARE\n(D) RETAKE</p>
-                <p class="as">OFFICIAL ANSWER: (C) TAKECARE\n\nEXPLANATION: Separating the binary segments carefully from left to right yields: 1(T), 0010(A), 0110(K), 00(E), 1010(C), 0010(A), 1110(R), 00(E). Combined, it reads TAKECARE.</p>
+                <p class="qs">STORY: Xavier maps alphabet characters to fixed binary numbers: T = 1, E = 00, A = 0010, K = 0110, C = 1010, R = 1110. QUESTION: Which of the following words matches this complete sent binary string: 1001001100010100010111000 ? (A) TEACRATE (B) EATCAKE (C) TAKECARE (D) RETAKE</p>
+                <p class="as">OFFICIAL ANSWER: (C) TAKECARE. EXPLANATION: Separating the binary segments carefully from left to right yields: 1(T), 0010(A), 0110(K), 00(E), 1010(C), 0010(A), 1110(R), 00(E). Combined, it reads TAKECARE.</p>
             </div>
             <div>
-                <p class="qs">STORY: A printer prints documents in black (B) and white (W). To save ink, it automatically replaces blocks of identical letters: 'BBBWW' becomes '3B2W'.\n\nQUESTION: What code does the printer generate for 'BBBBBBW'?\n\n(A) 6B1W\n(B) B6W1\n(C) 6BW\n(D) 7BW</p>
-                <p class="as">OFFICIAL ANSWER: (A) 6B1W\n\nEXPLANATION: There are 6 consecutive 'B's followed by 1 'W'. Run-length compression outputs counts directly before symbols.</p>
-            </div>
-            <div>
-STORY: 4 beavers (A, B, C, D) line up by height. Beaver A is shorter than B. Beaver C is taller than B. Beaver D is shorter than A.\n\nQUESTION: Who is the shortest beaver in the line?\n\n(A) A\n(B) B\n(C) C\n(D) D
-OFFICIAL ANSWER: (D) D\n\nEXPLANATION: Setting up height parameters: D is shorter than A, who is shorter than B, who is shorter than C. Therefore, D is the absolute shortest.
+                <p class="qs">STORY: A printer prints documents in black (B) and white (W). To save ink, it automatically replaces blocks of identical letters: BBBBWW becomes 3B2W. QUESTION: What code does the printer generate for BBBBBBW? (A) 6B1W (B) B6W1 (C) 6BW (D) 7BW</p>
+OFFICIAL ANSWER: (A) 6B1W. EXPLANATION: There are 6 consecutive Bs followed by 1 W. Run-length compression outputs counts directly before symbols.
 
 
-STORY: A system tracks a robotic bug on a map. An arrow instruction code shifts its orientation: 'R' turns it 90 degrees clockwise, 'L' turns it 90 degrees counter-clockwise.\n\nQUESTION: If the bug faces North and receives the instruction path 'R-R-L', which direction is it facing at the end?\n\n(A) East\n(B) South\n(C) West\n(D) North
-OFFICIAL ANSWER: (A) East\n\nEXPLANATION: North turned right (R) becomes East. Turned right again (R) becomes South. Turned left (L) returns it back to East.
+STORY: 4 beavers (A, B, C, D) line up by height. Beaver A is shorter than B. Beaver C is taller than B. Beaver D is shorter than A. QUESTION: Who is the shortest beaver in the line? (A) A (B) B (C) C (D) D
+OFFICIAL ANSWER: (D) D. EXPLANATION: Setting up height parameters: D is shorter than A, who is shorter than B, who is shorter than C. Therefore, D is the absolute shortest.
 
 
-STORY: To unlock a digital box, a beaver types a pattern sequence: [Circle, Triangle, Square]. The interface error shifts every item 1 position to the left cyclically.\n\nQUESTION: What sequence pattern is output on screen if the beaver enters [Circle, Triangle, Square]?\n\n(A) [Triangle, Square, Circle]\n(B) [Square, Circle, Triangle]\n(C) [Circle, Triangle, Square]\n(D) [Triangle, Circle, Square]
-OFFICIAL ANSWER: (A) [Triangle, Square, Circle]\n\nEXPLANATION: Shifting left moves Circle to the trailing index position, pulling Triangle to the front and Square to the middle.
+STORY: A system tracks a robotic bug on a map. An arrow instruction code shifts its orientation: R turns it 90 degrees clockwise, L turns it 90 degrees counter-clockwise. QUESTION: If the bug faces North and receives the instruction path R-R-L, which direction is it facing at the end? (A) East (B) South (C) West (D) North
+OFFICIAL ANSWER: (A) East. EXPLANATION: North turned right (R) becomes East. Turned right again (R) becomes South. Turned left (L) returns it back to East.
 
 
-STORY: A display grid uses transparent layered files: Background, Layer 1, Layer 2, Foreground. An image component sits on Layer 1, and an overlapping element sits on Layer 2.\n\nQUESTION: Which element masks out the visibility of the other where their coordinates intersect?\n\n(A) The element on Layer 1\n(B) The element on Layer 2\n(C) Neither\n(D) Both
-OFFICIAL ANSWER: (B) The element on Layer 2\n\nEXPLANATION: Objects assigned to a higher render depth index (Layer 2) always overlay and obscure content situated on rendering channels below them (Layer 1).
+STORY: To unlock a digital box, a beaver types a pattern sequence: [Circle, Triangle, Square]. The interface error shifts every item 1 position to the left cyclically. QUESTION: What sequence pattern is output on screen if the beaver enters [Circle, Triangle, Square]? (A) [Triangle, Square, Circle] (B) [Square, Circle, Triangle] (C) [Circle, Triangle, Square] (D) [Triangle, Circle, Square]
+OFFICIAL ANSWER: (A) [Triangle, Square, Circle]. EXPLANATION: Shifting left moves Circle to the trailing index position, pulling Triangle to the front and Square to the middle.
 
 
-STORY: A simple messaging rule lets a sender flag an urgency level from 1 (Low) to 5 (Critical). Lower numbers must yield priority lanes to higher numbers.\n\nQUESTION: Which alert stream sequence executes last under this structural priority logic?\n\n(A) Level 5\n(B) Level 3\n(C) Level 1\n(D) Level 4
-OFFICIAL ANSWER: (C) Level 1\n\nEXPLANATION: Because higher values claim processing lanes immediately, the lowest priority value (Level 1) stays queued until last.
+STORY: A display grid uses transparent layered files: Background, Layer 1, Layer 2, Foreground. An image component sits on Layer 1, and an overlapping element sits on Layer 2. QUESTION: Which element masks out the visibility of the other where their coordinates intersect? (A) The element on Layer 1 (B) The element on Layer 2 (C) Neither (D) Both
+OFFICIAL ANSWER: (B) The element on Layer 2. EXPLANATION: Objects assigned to a higher render depth index (Layer 2) always overlay and obscure content situated on rendering channels below them (Layer 1).
 
 
-STORY: A binary logic chip outputs a high signal (1) only if its two matching input lines match each other exactly (both 0 or both 1).\n\nQUESTION: What is the output if Input X is 0 and Input Y is 1?\n\n(A) 1\n(B) 0\n(C) 2\n(D) Undefined
-OFFICIAL ANSWER: (B) 0\n\nEXPLANATION: The inputs are mismatched (0 and 1). Since they are not completely identical, the logic equivalence gate yields 0.
+STORY: A simple messaging rule lets a sender flag an urgency level from 1 (Low) to 5 (Critical). Lower numbers must yield priority lanes to higher numbers. QUESTION: Which alert stream sequence executes last under this structural priority logic? (A) Level 5 (B) Level 3 (C) Level 1 (D) Level 4
+OFFICIAL ANSWER: (C) Level 1. EXPLANATION: Because higher values claim processing lanes immediately, the lowest priority value (Level 1) stays queued until last.
 
 
-STORY: A package conveyor drops items into processing tracks. It runs on a First-In, First-Out (FIFO) queue model.\n\nQUESTION: If packages arrive in the strict order [Box, Tube, Envelope], which item leaves the processing conveyor first?\n\n(A) Envelope\n(B) Tube\n(C) Box\n(D) None
-OFFICIAL ANSWER: (C) Box\n\nEXPLANATION: First-In, First-Out means the earliest data insertion point (Box) is always structural item number 1 extracted.
+STORY: A binary logic chip outputs a high signal (1) only if its two matching input lines match each other exactly (both 0 or both 1). QUESTION: What is the output if Input X is 0 and Input Y is 1? (A) 1 (B) 0 (C) 2 (D) Undefined
+OFFICIAL ANSWER: (B) 0. EXPLANATION: The inputs are mismatched (0 and 1). Since they are not completely identical, the logic equivalence gate yields 0.
 
 
-STORY: A beaver uses a keyboard where the 'A' key is broken and types 'E' instead, and the 'M' key is broken and types 'N' instead.\n\nQUESTION: What string displays on screen if the beaver tries to type the word 'TEAM'?\n\n(A) TEEN\n(B) TEEM\n(C) TEAN\n(D) TNEM
-OFFICIAL ANSWER: (A) TEEN\n\nEXPLANATION: T and E are normal. A maps to E, and M maps to N. Replacing letters directly results in TEEN.
+STORY: A package conveyor drops items into processing tracks. It runs on a First-In, First-Out (FIFO) queue model. QUESTION: If packages arrive in the strict order [Box, Tube, Envelope], which item leaves the processing conveyor first? (A) Envelope (B) Tube (C) Box (D) None
+OFFICIAL ANSWER: (C) Box. EXPLANATION: First-In, First-Out means the earliest data insertion point (Box) is always structural item number 1 extracted.
 
 
-STORY: A storage map tracks path trees. Spot 1 splits to Spot 2 and Spot 3. Spot 2 links to Spot 4. Spot 3 links to Spot 4.\n\nQUESTION: How many distinct ways can a beaver walk from Spot 1 to Spot 4 without stepping backward?\n\n(A) 1\n(B) 2\n(C) 3\n(D) 4
-OFFICIAL ANSWER: (B) 2\n\nEXPLANATION: The paths available are: (1 -> 2 -> 4) and (1 -> 3 -> 4). This amounts to exactly two unique routing operations.
+STORY: A beaver uses a keyboard where the A key is broken and types E instead, and the M key is broken and types N instead. QUESTION: What string displays on screen if the beaver tries to type the word TEAM? (A) TEEN (B) TEEM (C) TEAN (D) TNEM
+OFFICIAL ANSWER: (A) TEEN. EXPLANATION: T and E are normal. A maps to E, and M maps to N. Replacing letters directly results in TEEN.
 
-STORY: A schedule tracks overlapping runway reservations. Only one aircraft can safely use the strip at any exact minute.\n• Flight A (11:00 - 11:05)\n• Flight B (11:01 - 11:04)\n• Flight C (11:04 - 11:09)\n• Flight D (11:02 - 11:10)\n\nQUESTION: At precisely 11:03, which flight is actively utilizing the runway?\n\n(A) Flight A\n(B) Flight B\n(C) Flight C\n(D) Flight D
-OFFICIAL ANSWER: (D) Flight D\n\nEXPLANATION: At 11:03, we scan tracking indices. Flight D controls the time window from 11:02 to 11:10, meaning it is the active resource allocation block at 11:03.
 
+STORY: A storage map tracks path trees. Spot 1 splits to Spot 2 and Spot 3. Spot 2 links to Spot 4. Spot 3 links to Spot 4. QUESTION: How many distinct ways can a beaver walk from Spot 1 to Spot 4 without stepping backward? (A) 1 (B) 2 (C) 3 (D) 4
+OFFICIAL ANSWER: (B) 2. EXPLANATION: The paths available are: (1 to 2 to 4) and (1 to 3 to 4). This amounts to exactly two unique routing operations.
 
-STORY: Four structural wires (P, Q, R, S) overlap each other across a grid board. \n• Wire P is directly under Q.\n• Wire R is directly over Q.\n• Wire S is directly under P.\n\nQUESTION: In what order must you remove the wires from top to bottom so they do not tangle?\n\n(A) S, P, Q, R\n(B) R, Q, P, S\n(C) P, Q, R, S\n(D) R, P, Q, S
-OFFICIAL ANSWER: (B) R, Q, P, S\n\nEXPLANATION: Ordering the layers sequentially based on constraints shows: R is on top of Q, Q is on top of P, and P is on top of S. To disassemble from top to bottom, the sequence must be R, Q, P, S.
+STORY: A schedule tracks overlapping runway reservations. Only one aircraft can safely use the strip at any exact minute. Flight A (11:00 - 11:05), Flight B (11:01 - 11:04), Flight C (11:04 - 11:09), Flight D (11:02 - 11:10). QUESTION: At precisely 11:03, which flight is actively utilizing the runway? (A) Flight A (B) Flight B (C) Flight C (D) Flight D
+OFFICIAL ANSWER: (D) Flight D. EXPLANATION: At 11:03, we scan tracking indices. Flight D controls the time window from 11:02 to 11:10, meaning it is the active resource allocation block at 11:03.
 
 
-STORY: A network contains 13 communication nodes. It takes exactly 1 hour for an alert to pass from one node to all its immediate directly-connected neighbors.\n\nQUESTION: If Node A initiates the broadcast alert, what property determines the total hours needed for the message to propagate to the absolute furthest node?\n\n(A) The count of wire connections\n(B) The total quantity of network nodes\n(C) The shortest path distance to the furthest node address\n(D) The total quantity of endpoint nodes
-OFFICIAL ANSWER: (C) The shortest path distance to the furthest node address\n\nEXPLANATION: Because alerts branch out down all lines simultaneously (Breadth-First routing), total propagation time matches the shortest path distance value separating the source from the furthest node.
+STORY: Four structural wires (P, Q, R, S) overlap each other across a grid board. Wire P is directly under Q. Wire R is directly over Q. Wire S is directly under P. QUESTION: In what order must you remove the wires from top to bottom so they do not tangle? (A) S, P, Q, R (B) R, Q, P, S (C) P, Q, R, S (D) R, P, Q, S
+OFFICIAL ANSWER: (B) R, Q, P, S. EXPLANATION: Ordering the layers sequentially based on constraints shows: R is on top of Q, Q is on top of P, and P is on top of S. To disassemble from top to bottom, the sequence must be R, Q, P, S.
 
 
-STORY: An automated document queue handles returns by page volume using a 'Shortest Job First' scheduling script. The current queue contains: \nLuciano (2 pages), Cene (5 pages), Manuel (1 page), Rui (4 pages).\n\nQUESTION: In what exact order will the scheduler process these page returns?\n\n(A) Luciano, Cene, Manuel, Rui\n(B) Manuel, Luciano, Rui, Cene\n(C) Cene, Rui, Luciano, Manuel\n(D) Manuel, Rui, Luciano, Cene
-OFFICIAL ANSWER: (B) Manuel, Luciano, Rui, Cene\n\nEXPLANATION: Shortest Job First schedules processes by sorting their data payloads in ascending structural order: Manuel (1) -> Luciano (2) -> Rui (4) -> Cene (5).
+STORY: A network contains 13 communication nodes. It takes exactly 1 hour for an alert to pass from one node to all its immediate directly-connected neighbors. QUESTION: If Node A initiates the broadcast alert, what property determines the total hours needed for the message to propagate to the absolute furthest node? (A) The count of wire connections (B) The total quantity of network nodes (C) The shortest path distance to the furthest node address (D) The total quantity of endpoint nodes
+OFFICIAL ANSWER: (C) The shortest path distance to the furthest node address. EXPLANATION: Because alerts branch out down all lines simultaneously (Breadth-First routing), total propagation time matches the shortest path distance value separating the source from the furthest node.
 
 
-STORY: A processing script requires a multi-user file lock to clear only on a day when both User X AND User Y register activity logs.\n• User X registers logs on: Monday, Tuesday, Wednesday.\n• User Y registers logs on: Tuesday, Thursday, Friday.\n\nQUESTION: On which weekday will the file lock clear?\n\n(A) Monday\n(B) Tuesday\n(C) Thursday\n(D) Friday
-OFFICIAL ANSWER: (B) Tuesday\n\nEXPLANATION: This is a set intersection operation. Tuesday is the single element overlapping across both user activity datasets.
+STORY: An automated document queue handles returns by page volume using a Shortest Job First scheduling script. The current queue contains: Luciano (2 pages), Cene (5 pages), Manuel (1 page), Rui (4 pages). QUESTION: In what exact order will the scheduler process these page returns? (A) Luciano, Cene, Manuel, Rui (B) Manuel, Luciano, Rui, Cene (C) Cene, Rui, Luciano, Manuel (D) Manuel, Rui, Luciano, Cene
+OFFICIAL ANSWER: (B) Manuel, Luciano, Rui, Cene. EXPLANATION: Shortest Job First schedules processes by sorting their data payloads in ascending structural order: Manuel (1) to Luciano (2) to Rui (4) to Cene (5).
 
 
-STORY: A conditional tree rule states: 'A node can be colored Yellow only if none of its directly connected parent or child nodes are colored Red.'\n\nQUESTION: If Node 1 is Red, and Node 2 connects to both Node 1 and Node 3, which node can be safely colored Yellow?\n\n(A) Node 1\n(B) Node 2\n(C) Node 3\n(D) None
-OFFICIAL ANSWER: (C) Node 3\n\nEXPLANATION: Node 2 is disqualified because it connects directly to Node 1 (Red). Node 3 does not touch Node 1 directly, making it eligible.
+STORY: A processing script requires a multi-user file lock to clear only on a day when both User X AND User Y register activity logs. User X registers logs on: Monday, Tuesday, Wednesday. User Y registers logs on: Tuesday, Thursday, Friday. QUESTION: On which weekday will the file lock clear? (A) Monday (B) Tuesday (C) Thursday (D) Friday
+OFFICIAL ANSWER: (B) Tuesday. EXPLANATION: This is a set intersection operation. Tuesday is the single element overlapping across both user activity datasets.
 
 
-STORY: A navigation pathfinder searches coordinates. It is at cell (2,2) and moves using a greedy calculation: it must always step onto the adjacent square with the lowest numerical weight code. Options: North (9), East (3), South (7), West (5).\n\nQUESTION: Which step direction does the pathfinder select?\n\n(A) North\n(B) East\n(C) South\n(D) West
-OFFICIAL ANSWER: (B) East\n\nEXPLANATION: The greedy pathfinder instantly matches the lowest tracking cost scalar attribute, which is East (3).
+STORY: A conditional tree rule states: A node can be colored Yellow only if none of its directly connected parent or child nodes are colored Red. QUESTION: If Node 1 is Red, and Node 2 connects to both Node 1 and Node 3, which node can be safely colored Yellow? (A) Node 1 (B) Node 2 (C) Node 3 (D) None
+OFFICIAL ANSWER: (C) Node 3. EXPLANATION: Node 2 is disqualified because it connects directly to Node 1 (Red). Node 3 does not touch Node 1 directly, making it eligible.
 
 
-STORY: A grid system labels columns with letters (A, B, C...) and rows with numbers (1, 2, 3...). A token is sitting at square B2.\n\nQUESTION: If the token moves 2 squares right and 1 square up, what is its new location address?\n\n(A) D3\n(B) C3\n(C) D1\n(D) B4
-OFFICIAL ANSWER: (A) D3\n\nEXPLANATION: Column B shifted 2 spots right becomes D. Row 2 shifted 1 spot up becomes 3. New coordinate is D3.
+STORY: A navigation pathfinder searches coordinates. It is at cell (2,2) and moves using a greedy calculation: it must always step onto the adjacent square with the lowest numerical weight code. Options: North (9), East (3), South (7), West (5). QUESTION: Which step direction does the pathfinder select? (A) North (B) East (C) South (D) West
+OFFICIAL ANSWER: (B) East. EXPLANATION: The greedy pathfinder instantly matches the lowest tracking cost scalar attribute, which is East (3).
 
 
-STORY: A string inverter process flips binary bits completely: 1s transform to 0s, and 0s transform to 1s.\n\nQUESTION: What is the resulting data array configuration if a row containing '01011' is fed into the process?\n\n(A) 10100\n(B) 01011\n(C) 11111\n(D) 00000
-OFFICIAL ANSWER: (A) 10100\n\nEXPLANATION: Applying a programmatic NOT operator to each element switches every bit value to its complement: 0->1, 1->0, 0->1, 1->0, 1->0.
+STORY: A grid system labels columns with letters (A, B, C...) and rows with numbers (1, 2, 3...). A token is sitting at square B2. QUESTION: If the token moves 2 squares right and 1 square up, what is its new location address? (A) D3 (B) C3 (C) D1 (D) B4
+OFFICIAL ANSWER: (A) D3. EXPLANATION: Column B shifted 2 spots right becomes D. Row 2 shifted 1 spot up becomes 3. New coordinate is D3.
 
 
-STORY: An array tracks positions 1 through 5 in a circular pattern. Moving past position 5 loops the pointer back to index position 1.\n\nQUESTION: If a process starts scanning at position 3 and advances forward 4 index tracking slots, what position does it target?\n\n(A) Position 1\n(B) Position 2\n(C) Position 3\n(D) Position 4
-OFFICIAL ANSWER: (B) Position 2\n\nEXPLANATION: Counting positions circularly: 3 -> 4 -> 5 -> 1 -> 2. The fourth incremental step hits index position 2.
+STORY: A string inverter process flips binary bits completely: 1s transform to 0s, and 0s transform to 1s. QUESTION: What is the resulting data array configuration if a row containing 01011 is fed into the process? (A) 10100 (B) 01011 (C) 11111 (D) 00000
+OFFICIAL ANSWER: (A) 10100. EXPLANATION: Applying a programmatic NOT operator to each element switches every bit value to its complement: 0 to 1, 1 to 0, 0 to 1, 1 to 0, 1 to 0.
 
 
-STORY: A storage container holds 3 boxes stacked vertically: Red (bottom), Green (middle), Blue (top). You can only interact with the top box.\n\nQUESTION: What box sequence remains inside the stack container if you perform 1 remove operation followed by inserting a Yellow box?\n\n(A) Red, Green, Yellow\n(B) Yellow, Green, Red\n(C) Red, Yellow, Blue\n(D) Green, Blue, Yellow
-OFFICIAL ANSWER: (A) Red, Green, Yellow\n\nEXPLANATION: Removing an item extracts Blue from the top. Inserting Yellow pushes it onto the newly exposed Green box, changing the stack to Red (bottom), Green (middle), Yellow (top).
+STORY: An array tracks positions 1 through 5 in a circular pattern. Moving past position 5 loops the pointer back to index position 1. QUESTION: If a process starts scanning at position 3 and advances forward 4 index tracking slots, what position does it target? (A) Position 1 (B) Position 2 (C) Position 3 (D) Position 4
+OFFICIAL ANSWER: (B) Position 2. EXPLANATION: Counting positions circularly: 3 to 4 to 5 to 1 to 2. The fourth incremental step hits index position 2.
 
 
-STORY: A simple encoding table switches characters: X -> M, Y -> N, Z -> O. \n\nQUESTION: What is the encoded output string if a user parses 'YXZ'?\n\n(A) NMO\n(B) MON\n(C) OMN\n(D) NOM
-OFFICIAL ANSWER: (A) NMO\n\nEXPLANATION: Mapping variables directly via lookup properties: Y becomes N, X becomes M, and Z becomes O. Combining them gives NMO.
+STORY: A storage container holds 3 boxes stacked vertically: Red (bottom), Green (middle), Blue (top). You can only interact with the top box. QUESTION: What box sequence remains inside the stack container if you perform 1 remove operation followed by inserting a Yellow box? (A) Red, Green, Yellow (B) Yellow, Green, Red (C) Red, Yellow, Blue (D) Green, Blue, Yellow
+OFFICIAL ANSWER: (A) Red, Green, Yellow. EXPLANATION: Removing an item extracts Blue from the top. Inserting Yellow pushes it onto the newly exposed Green box, changing the stack to Red (bottom), Green (middle), Yellow (top).
 
 
-STORY: A sorting machine processes numbers. It checks pairs from left to right and swaps them if the left number is strictly greater than the right number. Input array sequence is [5, 2, 9, 1].\n\nQUESTION: What is the array state after the very first comparison and conditional swap pass occurs on the first pair?\n\n(A) [2, 5, 9, 1]\n(B) [5, 2, 1, 9]\n(C) [1, 2, 5, 9]\n(D) [2, 1, 5, 9]
-OFFICIAL ANSWER: (A) [2, 5, 9, 1]\n\nEXPLANATION: The machine evaluates the first pair index (5 and 2). Because 5 > 2, it executes a swap instruction, updating the memory block to [2, 5, 9, 1].
+STORY: A simple encoding table switches characters: X to M, Y to N, Z to O. QUESTION: What is the encoded output string if a user parses YXZ? (A) NMO (B) MON (C) OMN (D) NOM
+OFFICIAL ANSWER: (A) NMO. EXPLANATION: Mapping variables directly via lookup properties: Y becomes N, X becomes M, and Z becomes O. Combining them gives NMO.
 
 
-STORY: A scheduling logic grid tracks meetings: Room 1 (1:00-2:00), Room 2 (1:30-2:30). A coordinator needs a quiet space running continuously from 1:15 to 1:45.\n\nQUESTION: Which room allocation slot conflicts with this tracking request?\n\n(A) Room 1\n(B) Room 2\n(C) Both Room 1 and Room 2\n(D) Neither
-OFFICIAL ANSWER: (C) Both Room 1 and Room 2\n\nEXPLANATION: The request window (1:15-1:45) overlaps with both Room 1's duration and Room 2's booking interval, triggering a system scheduling conflict on both lines.
+STORY: A sorting machine processes numbers. It checks pairs from left to right and swaps them if the left number is strictly greater than the right number. Input array sequence is 5, 2, 9, 1. QUESTION: What is the array state after the very first comparison and conditional swap pass occurs on the first pair? (A) 2, 5, 9, 1 (B) 5, 2, 9, 1 (C) 2, 5, 1, 9 (D) 1, 2, 5, 9
+OFFICIAL ANSWER: (A) 2, 5, 9, 1. EXPLANATION: The machine evaluates the first pair index (5 and 2). Because 5 > 2, it executes a swap instruction, updating the memory block to 2, 5, 9, 1.
 
 
-STORY: A variable mapping rule replaces sequences: every single occurrence of the string 'ab' is automatically expanded into 'bba'.\n\nQUESTION: What does the data string 'abc' transform into after 1 parsing translation sweep completes?\n\n(A) bbac\n(B) abbc\n(C) cabb\n(D) bbaa
-OFFICIAL ANSWER: (A) bbac\n\nEXPLANATION: The system targets the match segment 'ab' and rewrites it to 'bba'. The trailing symbol 'c' is unaffected, yielding bbac.
+STORY: A scheduling logic grid tracks meetings: Room 1 (1:00-2:00), Room 2 (1:30-2:30). A coordinator needs a quiet space running continuously from 1:15 to 1:45. QUESTION: Which room allocation slot conflicts with this tracking request? (A) Room 1 (B) Room 2 (C) Both Room 1 and Room 2 (D) Neither
+OFFICIAL ANSWER: (C) Both Room 1 and Room 2. EXPLANATION: The request window (1:15-1:45) overlaps with both Room 1's duration and Room 2's booking interval, triggering a system scheduling conflict on both lines.
 
-STORY: A magical fruit processing box runs nested word substitution functions. The transformation rules state that function M(x) replaces a specific fruit string with its master parent tree grouping.\n\nQUESTION: If you execute a nested string evaluation sequence structured exactly as M(M(M(M(M(banana))))), what terminal classification category asset is ultimately output at the end of the 5th recursive calculation loop?\n\n(A) Banana\n(B) Yellow Fruit\n(C) Pear\n(D) Seed Plant Root
-OFFICIAL ANSWER: (C) Pear\n\nEXPLANATION: Tracking the step-by-step structural definition tree given in the official Waterloo document, parsing the 5 functional translation loops routes the target string directly to 'Pear'.
 
+STORY: A variable mapping rule replaces sequences: every single occurrence of the string ab is automatically expanded into bba. QUESTION: What does the data string abc transform into after 1 parsing translation sweep completes? (A) bbac (B) abbc (C) cabb (D) bbaa
+OFFICIAL ANSWER: (A) bbac. EXPLANATION: The system targets the match segment ab and rewrites it to bba. The trailing symbol c is unaffected, yielding bbac.
 
-STORY: Rory is stringing beads onto a wire tube. The physical layout constraint rules dictate that a new bead can only be added if its numeric print value is strictly greater than the value of the previous bead already on the wire.\n\nQUESTION: If Rory has a mixed jar of tracking beads labeled, what is the maximum number of beads he can successfully string onto the wire?\n\n(A) 4 beads\n(B) 5 beads\n(C) 6 beads\n(D) 7 beads
-OFFICIAL ANSWER: (C) 6 beads\n\nEXPLANATION: This maps to the Longest Increasing Subsequence problem. The longest valid chain matching the constraint rules uses 6 beads: either [1, 2, 4, 6, 7, 9] or [1, 3, 4, 6, 7, 9].
+STORY: A magical fruit processing box runs nested word substitution functions. The transformation rules state that function M(x) replaces a specific fruit string with its master parent tree grouping. QUESTION: If you execute a nested string evaluation sequence structured exactly as M(M(M(M(M(banana))))), what terminal classification category asset is ultimately output at the end of the 5th recursive calculation loop? (A) Banana (B) Yellow Fruit (C) Pear (D) Seed Plant Root
+OFFICIAL ANSWER: (C) Pear. EXPLANATION: Tracking the step-by-step structural definition tree given in the official Waterloo document, parsing the 5 functional translation loops routes the target string directly to Pear.
 
 
-STORY: A logic grid track routes trains across a local transit network map. The target scheduling rule checks network saturation and calculates path capacities.\n\nQUESTION: According to the official graph metrics, what is the maximum number of trains that can safely navigate the system daily from Quandaria to Pixleton without path blockages?\n\n(A) 12\n(B) 13\n(C) 16\n(D) 19
-OFFICIAL ANSWER: (B) 13\n\nEXPLANATION: This solves a Maximum Flow Network problem. Calculating bottleneck points across the connecting rail lines establishes that the maximum capacity saturation point is exactly 13 units.
+STORY: Rory is stringing beads onto a wire tube. The physical layout constraint rules dictate that a new bead can only be added if its numeric print value is strictly greater than the value of the previous bead already on the wire. QUESTION: If Rory has a mixed jar of tracking beads labeled 1, 3, 2, 4, 6, 7, 9, what is the maximum number of beads he can successfully string onto the wire? (A) 4 beads (B) 5 beads (C) 6 beads (D) 7 beads
+OFFICIAL ANSWER: (C) 6 beads. EXPLANATION: This maps to the Longest Increasing Subsequence problem. The longest valid chain matching the constraint rules uses 6 beads: either 1, 2, 4, 6, 7, 9 or 1, 3, 4, 6, 7, 9.
 
 
-STORY: Captain Bojana is using a testing sensor device to locate hidden treasure across an island split into 16 grid regions (A through P). When she inputs a grouping of coordinates, the sensor returns a binary flag: 1 if the treasure is inside that group, and 0 if it is completely absent.\n\nQUESTION: What is the minimum number of device scans required to guarantee finding the exact location of the treasure box?\n\n(A) 4\n(B) 8\n(C) 12\n(D) 16
-OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: This demonstrates a Binary Search pattern. By dividing the 16 regions in half each time (8, then 4, then 2, then 1), log₂(16) calculation passes guarantees finding the target item in exactly 4 steps.
+STORY: A logic grid track routes trains across a local transit network map. The target scheduling rule checks network saturation and calculates path capacities. QUESTION: According to the official graph metrics, what is the maximum number of trains that can safely navigate the system daily from Quandaria to Pixleton without path blockages? (A) 12 (B) 13 (C) 16 (D) 19
+OFFICIAL ANSWER: (B) 13. EXPLANATION: This solves a Maximum Flow Network problem. Calculating bottleneck points across the connecting rail lines establishes that the maximum capacity saturation point is exactly 13 units.
 
 
-STORY: A system tracks hermit crabs searching for fitting shells. Crabs will only move into empty shells that match their specific dimensional requirements. \n\nQUESTION: If a complex matching map features 9 crabs and a limited pool of shell assets, what is the absolute maximum number of crabs that can be successfully matched to shells simultaneously without overlap?\n\n(A) 6\n(B) 7\n(C) 8\n(D) 9
-OFFICIAL ANSWER: (B) 7\n\nEXPLANATION: This utilizes a Maximum Bipartite Matching algorithm. Mapping out the cross-compatibility matrices shows that resource limits constrain the optimal allocation layout to exactly 7 successful assignments.
+STORY: Captain Bojana is using a testing sensor device to locate hidden treasure across an island split into 16 grid regions (A through P). When she inputs a grouping of coordinates, the sensor returns a binary flag: 1 if the treasure is inside that group, and 0 if it is completely absent. QUESTION: What is the minimum number of device scans required to guarantee finding the exact location of the treasure box? (A) 4 (B) 8 (C) 12 (D) 16
+OFFICIAL ANSWER: (A) 4. EXPLANATION: This demonstrates a Binary Search pattern. By dividing the 16 regions in half each time (8, then 4, then 2, then 1), log2(16) calculation passes guarantees finding the target item in exactly 4 steps.
 
 
-STORY: A binary search tree stores structural integer keys. To locate data, an query script navigates down left paths if the key is smaller than the current node, and right paths if it is larger.\n\nQUESTION: If the root index node holds 100, and your target data key is 75, which sequence path do you execute first?\n\n(A) Right path pointer\n(B) Left path pointer\n(C) Terminal leaf return\n(D) Loop back to root
-OFFICIAL ANSWER: (B) Left path pointer\n\nEXPLANATION: Because 75 < 100, the lookup protocol follows the left child tree branch to minimize search space.
+STORY: A system tracks hermit crabs searching for fitting shells. Crabs will only move into empty shells that match their specific dimensional requirements. QUESTION: If a complex matching map features 9 crabs and a limited pool of shell assets, what is the absolute maximum number of crabs that can be successfully matched to shells simultaneously without overlap? (A) 6 (B) 7 (C) 8 (D) 9
+OFFICIAL ANSWER: (B) 7. EXPLANATION: This utilizes a Maximum Bipartite Matching algorithm. Mapping out the cross-compatibility matrices shows that resource limits constrain the optimal allocation layout to exactly 7 successful assignments.
 
 
-STORY: A system deadlock happens when Task 1 locks Asset A and blocks for Asset B, while Task 2 locks Asset B and blocks for Asset A.\n\nQUESTION: What structural configuration entirely eliminates this systemic circular block pattern hazard?\n\n(A) Increasing processing speed\n(B) Imposing a global linear resource allocation ordering\n(C) Expanding total system cache\n(D) Running tasks sequentially by size
-OFFICIAL ANSWER: (B) Imposing a global linear resource allocation ordering\n\nEXPLANATION: Enforcing a numerical ordering on assets ensures threads request locks in the exact same sequence, preventing overlapping circular waits.
+STORY: A binary search tree stores structural integer keys. To locate data, an query script navigates down left paths if the key is smaller than the current node, and right paths if it is larger. QUESTION: If the root index node holds 100, and your target data key is 75, which sequence path do you execute first? (A) Right path pointer (B) Left path pointer (C) Terminal leaf return (D) Loop back to root
+OFFICIAL ANSWER: (B) Left path pointer. EXPLANATION: Because 75 < 100, the lookup protocol follows the left child tree branch to minimize search space.
 
 
-STORY: A network pathfinder connects 4 core servers with directional links: A-B (3ms), B-C (4ms), A-C (8ms).\n\nQUESTION: What is the minimum latency value to route a payload from server A to server C?\n\n(A) 8ms\n(B) 7ms\n(C) 12ms\n(D) 3ms
-OFFICIAL ANSWER: (B) 7ms\n\nEXPLANATION: Routing through server B (A -> B -> C) calculates to 3ms + 4ms = 7ms, which bypasses the slower 8ms direct line link.
+STORY: A system deadlock happens when Task 1 locks Asset A and blocks for Asset B, while Task 2 locks Asset B and blocks for Asset A. QUESTION: What structural configuration entirely eliminates this systemic circular block pattern hazard? (A) Increasing processing speed (B) Imposing a global linear resource allocation ordering (C) Expanding total system cache (D) Running tasks sequentially by size
+OFFICIAL ANSWER: (B) Imposing a global linear resource allocation ordering. EXPLANATION: Enforcing a numerical ordering on assets ensures threads request locks in the exact same sequence, preventing overlapping circular waits.
 
 
-STORY: A memory engine manages open fragments using a 'Best-Fit' layout model. It scans available slots and matches data to the smallest allocation block that fits it. Slots: [15KB, 30KB, 60KB].\n\nQUESTION: Where does the engine store an incoming 18KB file component?\n\n(A) 15KB slot\n(B) 30KB slot\n(C) 60KB slot\n(D) Fragment Queue
-OFFICIAL ANSWER: (B) 30KB slot\n\nEXPLANATION: The 15KB slot is too small. Between the 30KB and 60KB options, the Best-Fit approach chooses 30KB because it minimizes wasted remaining space.
+STORY: A network pathfinder connects 4 core servers with directional links: A-B (3ms), B-C (4ms), A-C (8ms). QUESTION: What is the minimum latency value to route a payload from server A to server C? (A) 8ms (B) 7ms (C) 12ms (D) 3ms
+OFFICIAL ANSWER: (B) 7ms. EXPLANATION: Routing through server B (A to B to C) calculates to 3ms + 4ms = 7ms, which bypasses the slower 8ms direct line link.
 
 
-STORY: A recursive script processes nested data structures. Each loop iteration replaces every single letter 'X' with the sequence string 'XY'.\n\nQUESTION: What is the complete output string configuration if a string starting as 'X' runs through exactly 3 processing iterations?\n\n(A) XYYY\n(B) XYXYXY\n(C) XYYYY\n(D) XYYYYY
-OFFICIAL ANSWER: (A) XYYY\n\nEXPLANATION: Iteration 1: X -> XY. Iteration 2: The 'X' inside 'XY' transforms, yielding XYY. Iteration 3: The 'X' inside 'XYY' transforms, producing XYYY.
+STORY: A memory engine manages open fragments using a Best-Fit layout model. It scans available slots and matches data to the smallest allocation block that fits it. Slots: [15KB, 30KB, 60KB]. QUESTION: Where does the engine store an incoming 18KB file component? (A) 15KB slot (B) 30KB slot (C) 60KB slot (D) Fragment Queue
+OFFICIAL ANSWER: (B) 30KB slot. EXPLANATION: The 15KB slot is too small. Between the 30KB and 60KB options, the Best-Fit approach chooses 30KB because it minimizes wasted remaining space.
 
 
-STORY: A pathfinder bug climbs a terrain mesh map. It can only make a step onto an adjacent coordinate tile if that tile's elevation value is strictly higher than its current tile. It gets trapped on a small peak that is lower than the main mountain summit.\n\nQUESTION: What structural algorithm issue does this trap scenario demonstrate?\n\n(A) Infinite stack loop\n(B) Local maxima trap\n(C) Buffer overflow boundary\n(D) Memory link failure
-OFFICIAL ANSWER: (B) Local maxima trap\n\nEXPLANATION: Pure hill-climbing algorithms fail when they reach a local peak, as all adjacent options lead downward, blocking them from discovering the true global maximum.
+STORY: A recursive script processes nested data structures. Each loop iteration replaces every single letter X with the sequence string XY. QUESTION: What is the complete output string configuration if a string starting as X runs through exactly 3 processing iterations? (A) XYYY (B) XYXYXY (C) XYYYY (D) XYYYYY
+OFFICIAL ANSWER: (A) XYYY. EXPLANATION: Iteration 1: X to XY. Iteration 2: The X inside XY transforms, yielding XYY. Iteration 3: The X inside XYY transforms, producing XYYY.
 
 
-STORY: A multi-threaded system shares 3 processing channels. If all 3 slots get locked by inactive background threads, incoming operations hang indefinitely.\n\nQUESTION: What state classification describes this system freeze failure?\n\n(A) Resource Starvation\n(B) Array overflow\n(C) Division by zero\n(D) Core compilation crash
-OFFICIAL ANSWER: (A) Resource Starvation\n\nEXPLANATION: Starvation occurs when processes cannot execute because required system resources are indefinitely withheld or completely saturated by competing blocks.
+STORY: A pathfinder bug climbs a terrain mesh map. It can only make a step onto an adjacent coordinate tile if that tile's elevation value is strictly higher than its current tile. It gets trapped on a small peak that is lower than the main mountain summit. QUESTION: What structural algorithm issue does this trap scenario demonstrate? (A) Infinite stack loop (B) Local maxima trap (C) Buffer overflow boundary (D) Memory link failure
+OFFICIAL ANSWER: (B) Local maxima trap. EXPLANATION: Pure hill-climbing algorithms fail when they reach a local peak, as all adjacent options lead downward, blocking them from discovering the true global maximum.
 
 
-STORY: A hash function maps string records to numerical array slots by calculating: (Sum of character position metrics) modulo 10.\n\nQUESTION: If two completely distinct text records evaluate to the exact same array index output, what configuration event has occurred?\n\n(A) Memory leak\n(B) Hash collision\n(C) Index error\n(D) Data corruption
-OFFICIAL ANSWER: (B) Hash collision\n\nEXPLANATION: A hash collision occurs when an algorithm assigns identical keys or slot destinations to different input data payloads.
+STORY: A multi-threaded system shares 3 processing channels. If all 3 slots get locked by inactive background threads, incoming operations hang indefinitely. QUESTION: What state classification describes this system freeze failure? (A) Resource Starvation (B) Array overflow (C) Division by zero (D) Core compilation crash
+OFFICIAL ANSWER: (A) Resource Starvation. EXPLANATION: Starvation occurs when processes cannot execute because required system resources are indefinitely withheld or completely saturated by competing blocks.
 
 
-STORY: A recursive parsing tree branches out down geometric splits. Node level 1 splits to 2 children. Level 2 splits to 4 children. Level 3 splits to 8 children.\n\nQUESTION: Following this exponential pattern, how many terminal leaf nodes reside on level 5?\n\n(A) 16\n(B) 32\n(C) 64\n(D) 128
-OFFICIAL ANSWER: (B) 32\n\nEXPLANATION: The leaf quantity scales by powers of two (2^n). Level 1=2, Level 2=4, Level 3=8, Level 4=16, Level 5=2^5 = 32 nodes.
+STORY: A hash function maps string records to numerical array slots by calculating: (Sum of character position metrics) modulo 10. QUESTION: If two completely distinct text records evaluate to the exact same array index output, what configuration event has occurred? (A) Memory leak (B) Hash collision (C) Index error (D) Data corruption
+OFFICIAL ANSWER: (B) Hash collision. EXPLANATION: A hash collision occurs when an algorithm assigns identical keys or slot destinations to different input data payloads.
 
-STORY: A network router uses a shortest-path script to dynamically shift data packages away from high-traffic nodes.\n\nQUESTION: Which standard graph routing algorithm handles this shortest-path operation across network grids?\n\n(A) Dijkstra's Algorithm\n(B) Binary Tree Sort\n(C) Bubble Filter sweep\n(D) Linear Index Scan
-OFFICIAL ANSWER: (A) Dijkstra's Algorithm\n\nEXPLANATION: Dijkstra's algorithm is the standard optimization method used to determine the shortest path between nodes in a weighted graph network mapping.
 
+STORY: A recursive parsing tree branches out down geometric splits. Node level 1 splits to 2 children. Level 2 splits to 4 children. Level 3 splits to 8 children. QUESTION: Following this exponential pattern, how many terminal leaf nodes reside on level 5? (A) 16 (B) 32 (C) 64 (D) 128
+OFFICIAL ANSWER: (B) 32. EXPLANATION: The leaf quantity scales by powers of two (2 to the power of n). Level 1=2, Level 2=4, Level 3=8, Level 4=16, Level 5=32 nodes.
 
+
+STORY: A network router uses a shortest-path script to dynamically shift data packages away from high-traffic nodes. QUESTION: Which standard graph routing algorithm handles this shortest-path operation across network grids? (A) Dijkstra's Algorithm (B) Binary Tree Sort (C) Bubble Filter sweep (D) Linear Index Scan
+OFFICIAL ANSWER: (A) Dijkstra's Algorithm. EXPLANATION: Dijkstra's algorithm is the standard optimization method used to determine the shortest path between nodes in a weighted graph network mapping.
+
+
+// Diagnostic Tracker to verify correct code compilation on load
+console.log("BCC System Script: Initializing Version 2.0 Engine...");
 var activeQuestions = [];
 var activeIndex = 0;
 function startQuiz(level) {
-// Swap screens
-document.getElementById('difficulty-screen').classList.add('hidden');
-document.getElementById('flashcard-screen').classList.remove('hidden');
-// Set header label badges
+console.log("BCC System Script: startQuiz clicked for level: " + level);
+var screenDifficulty = document.getElementById('difficulty-screen');
+var screenFlashcard = document.getElementById('flashcard-screen');
+if (!screenDifficulty || !screenFlashcard) {
+console.error("BCC System Script CRITICAL: Screen layout elements missing from page!");
+return;
+}
+screenDifficulty.classList.add('hidden');
+screenFlashcard.classList.remove('hidden');
 var labelText = 'Part A (Easy)';
 if (level === 'medium') { labelText = 'Part B (Medium)'; }
 else if (level === 'hard') { labelText = 'Part C (Hard)'; }
 var badge = document.getElementById('level-badge');
+if (badge) {
 badge.innerText = labelText;
 badge.className = 'badge ' + level;
-// Collect questions straight from the safe HTML containers
+}
 var htmlPool = document.querySelectorAll('.' + level + '-pool > div');
 activeQuestions = Array.from(htmlPool);
+console.log("BCC System Script: Loaded " + activeQuestions.length + " questions successfully from the DOM.");
 nextQuestion();
 }
 function nextQuestion() {
-if (activeQuestions.length === 0) return;
-// Select random block index
+if (activeQuestions.length === 0) {
+console.warn("BCC System Script: No questions available to pick.");
+return;
+}
 activeIndex = Math.floor(Math.random() * activeQuestions.length);
 var selectedDiv = activeQuestions[activeIndex];
-// Move text contents directly from HTML blocks into flashcard layout
-document.getElementById('question-text').innerText = selectedDiv.querySelector('.qs').innerText;
+var qText = selectedDiv.querySelector('.qs').innerText;
+var aText = selectedDiv.querySelector('.as').innerText;
+document.getElementById('question-text').innerText = qText;
 var answerTextElement = document.getElementById('answer-text');
-answerTextElement.innerText = selectedDiv.querySelector('.as').innerText;
-answerTextElement.classList.add('hidden'); // Ensure answer is hidden initially
-// Toggle view panels
+answerTextElement.innerText = aText;
+answerTextElement.classList.add('hidden');
 document.getElementById('reveal-btn').classList.remove('hidden');
 document.getElementById('next-btn').classList.add('hidden');
+console.log("BCC System Script: Rendered random question choice index: " + activeIndex);
 }
 function revealAnswer() {
+console.log("BCC System Script: revealAnswer triggered.");
 document.getElementById('answer-text').classList.remove('hidden');
 document.getElementById('reveal-btn').classList.add('hidden');
 document.getElementById('next-btn').classList.remove('hidden');
 }
 function goBack() {
+console.log("BCC System Script: goBack triggered.");
 document.getElementById('flashcard-screen').classList.add('hidden');
 document.getElementById('difficulty-screen').classList.remove('hidden');
 }
