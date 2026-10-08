@@ -143,7 +143,7 @@
 <body>
 
     <div class="game-container">
-        <div class="version-tag">Version 5.0</div>
+        <div class="version-tag">Version 6.0</div>
         <h1>bcc Challenge</h1>
         <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 & 10)</p>
         
@@ -175,24 +175,24 @@
     </div>
 
     <script>
-        // Official Waterloo BCC Grade 9/10 Past Examination Database
+        // Official Waterloo 2024 BCC Grades 9 & 10 Exam Questions
         var questionBank = {
             easy: [
                 { 
-                    q: "PUZZLE: Spies\n\nSTORY: Five secret agents communicate securely. They only send messages directly between specific people who share a key:\n- Agent 1 can message Agent 2 and Agent 3.\n- Agent 2 can message Agent 4.\n- Agent 3 can message Agent 4 and Agent 5.\n- Agent 5 can message Agent 1.\n\nQUESTION: If Agent 1 wants to leak a secret file to Agent 4, but cannot pass it through any agent who has already held it, what is the absolute minimum number of handoffs required to reach Agent 4?", 
-                    a: "OFFICIAL ANSWER: 2 handoffs\n\nEXPLANATION: The shortest safe paths are Agent 1 -> Agent 2 -> Agent 4, or Agent 1 -> Agent 3 -> Agent 4. Both combinations take exactly 2 steps." 
+                    q: "PUZZLE: Beaver Robot\n\nSTORY: Beaver Robot can say sentences containing exactly 3 words.\n• The first word must be chosen from Box 1.\n• The second word must be chosen from Box 2.\n• The third word must be chosen from Box 3.\n\nBOX 1: [I, YOU, BEAVERS, CAN, HELP, PLEASE]\nBOX 2: [LOVE, LIKE, CAN, ME, HELP, NEED, YOU, US]\nBOX 3: [HELP, SWIM, CARROTS, LOVE, YOU, WATER]\n\nQUESTION: Which sentence below cannot be said by Beaver Robot?\n\n(A) CAN YOU HELP\n(B) BEAVERS CAN SWIM\n(C) I LOVE YOU\n(D) YOU NEED ME", 
+                    a: "OFFICIAL ANSWER: (D) YOU NEED ME\n\nEXPLANATION: The third word of the sentence must be chosen from Box 3. Looking at Box 3, the word 'ME' is not available. Therefore, Beaver Robot cannot say this sentence." 
                 }
             ],
             medium: [
                 { 
-                    q: "PUZZLE: Loading Timber\n\nSTORY: A heavy log machine loads timber into a narrow river channel. Logs are pushed into the channel from the left side and float to the right side in a single line. The channel acts as a Queue (First-In, First-Out), but a dynamic gate can reverse the order of any three adjacent logs at any time.\n\nQUESTION: If five logs enter the channel in the order A, B, C, D, E (where A enters first), which of the following output exit sequences is completely IMPOSSIBLE to achieve?\n\n(A) B, A, D, C, E\n(B) C, B, A, E, D\n(C) A, D, B, C, E\n(D) E, D, C, B, A", 
-                    a: "OFFICIAL ANSWER: (C) A, D, B, C, E\n\nEXPLANATION: Because the gate can only flip sets of 3 adjacent items simultaneously, it is structurally impossible for D to jump over both B and C to sit behind A while keeping the rest of the array in that layout." 
+                    q: "PUZZLE: Book Return\n\nSTORY: At the Hardwood Library, book returns are processed by quantity. That is, the beaver with the fewest books to return is helped first.\n\nThe librarian can process one book per minute. After processing all of the books returned by a particular beaver, the librarian next helps the beaver waiting in line with the fewest books to return.\n\nFive beavers arrive in the morning:\n- Luciano (9:00 arrival, 4 books)\n- Rui (9:02 arrival, 6 books)\n- Cene (9:03 arrival, 3 books)\n- Manuel (9:05 arrival, 4 books)\n- Priscilla (9:12 arrival, 1 book)\n\nLuciano arrives right when the library opens, so the librarian processes Luciano’s books first.\n\nQUESTION: In which order will the beavers be helped?\n\n(A) Luciano, Rui, Cene, Manuel, Priscilla\n(B) Luciano, Cene, Rui, Manuel, Priscilla\n(C) Luciano, Cene, Manuel, Rui, Priscilla\n(D) Priscilla, Cene, Luciano, Manuel, Rui", 
+                    a: "OFFICIAL ANSWER: (C) Luciano, Cene, Manuel, Rui, Priscilla\n\nEXPLANATION:\n1. At 9:00, Luciano is the only one there and starts getting helped. His 4 books take 4 minutes (finished at 9:04).\n2. By 9:04, Rui (9:02) and Cene (9:03) have arrived. Cene has fewer books (3) than Rui (6), so Cene is helped next (takes 3 minutes, finished at 9:07).\n3. By 9:05, Manuel arrives. At 9:07, the librarian compares the remaining line: Manuel (4 books) vs Rui (6 books). Manuel is smaller, so Manuel is helped next (takes 4 minutes, finished at 9:11).\n4. At 9:11, only Rui is in line, so his processing begins (finished at 9:17). Meanwhile, Priscilla arrives at 9:12 and is processed last." 
                 }
             ],
             hard: [
                 { 
-                    q: "PUZZLE: Hermit Crabs\n\nSTORY: 5 hermit crabs (C1, C2, C3, C4, C5) are searching for shells. There are 5 empty shells (S1, S2, S3, S4, S5) on the beach. Crabs can only fit into shells that match their size parameters:\n- C1 fits into S1, S2\n- C2 fits into S2, S3\n- C3 fits into S1, S3, S4\n- C4 fits into S4, S5\n- C5 fits into S3, S5\n\nQUESTION: What is the maximum number of crabs that can move into matching shells at the exact same time without sharing?\n\n(A) 3\n(B) 4\n(C) 5\n(D) 2", 
-                    a: "OFFICIAL ANSWER: (C) 5\n\nEXPLANATION: This solves a Maximum Bipartite Matching algorithm problem. A perfect layout configuration exists where all 5 crabs match to separate shells: C1->S1, C2->S2, C3->S3, C4->S4, and C5->S5." 
+                    q: "PUZZLE: Finding Treasure\n\nSTORY: Captain Bojana is looking for a treasure hidden on an island. The island is divided into 16 regions, each marked with a letter from A to P.\n\nCaptain Bojana can enter any number of regions into a special device and the device will tell her whether or not the treasure is in one of those regions. For example, if she enters regions A, C, and D into the device and the device shows 'yes', then the treasure is in exactly one of regions A, C, or D.\n\nQUESTION: What is the least number of times Captain Bojana needs to use the device to guarantee she will determine which region contains the treasure?\n\n(A) 4\n(B) 6\n(C) 8\n(D) 12", 
+                    a: "OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: This is a classic Binary Search pattern. Since there are 16 regions, she can divide the options exactly in half with each scan:\n- Scan 1: Group 8 regions together. If 'yes', it is in those 8; if 'no', it is in the other 8.\n- Scan 2: Group 4 regions from the remaining suspect set.\n- Scan 3: Group 2 regions from the remaining suspect set.\n- Scan 4: Test 1 region from the final remaining pair to uniquely isolate the treasure. Log2(16) calculation passes guarantees success in 4 steps." 
                 }
             ]
         };
@@ -215,29 +215,21 @@
 
         function nextQuestion() {
             var questions = questionBank[currentLevel];
-            var randomIndex = Math.floor(Math.random() * questions.length);
-            currentQuestionObj = questions[randomIndex];
-            
-            document.getElementById('question-text').innerText = currentQuestionObj.q;
-            
-            var answerElement = document.getElementById('answer-text');
-            answerElement.innerText = currentQuestionObj.a;
-            answerElement.classList.add('hidden');
-            
-            document.getElementById('reveal-btn').classList.remove('hidden');
-            document.getElementById('next-btn').classList.add('hidden');
-        }
-
-        function revealAnswer() {
-            document.getElementById('answer-text').classList.remove('hidden');
-            document.getElementById('reveal-btn').classList.add('hidden');
-            document.getElementById('next-btn').classList.remove('hidden');
-        }
-
-        function goBack() {
-            document.getElementById('flashcard-screen').classList.add('hidden');
-            document.getElementById('difficulty-screen').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+var randomIndex = Math.floor(Math.random() * questions.length);
+currentQuestionObj = questions[randomIndex];
+document.getElementById('question-text').innerText = currentQuestionObj.q;
+var answerElement = document.getElementById('answer-text');
+answerElement.innerText = currentQuestionObj.a;
+answerElement.classList.add('hidden');
+document.getElementById('reveal-btn').classList.remove('hidden');
+document.getElementById('next-btn').classList.add('hidden');
+}
+function revealAnswer() {
+document.getElementById('answer-text').classList.remove('hidden');
+document.getElementById('reveal-btn').classList.add('hidden');
+document.getElementById('next-btn').classList.remove('hidden');
+}
+function goBack() {
+document.getElementById('flashcard-screen').classList.add('hidden');
+document.getElementById('difficulty-screen').classList.remove('hidden');
+}
