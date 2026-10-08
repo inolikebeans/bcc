@@ -143,9 +143,9 @@
 <body>
 
     <div class="game-container">
-        <div class="version-tag">Version 6.0</div>
+        <div class="version-tag">Version 7.0</div>
         <h1>bcc Challenge</h1>
-        <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 & 10)</p>
+        <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 and 10)</p>
         
         <!-- Difficulty Selection Screen -->
         <div id="difficulty-screen">
@@ -170,29 +170,29 @@
                 <button id="reveal-btn" class="btn action" onclick="revealAnswer()">Reveal Answer</button>
                 <button id="next-btn" class="btn next hidden" onclick="nextQuestion()">Next Question</button>
             </div>
-            <button class="btn back" onclick="goBack()">&larr; Choose Another Level</button>
+            <button class="btn back" onclick="goBack()">Choose Another Level</button>
         </div>
     </div>
 
     <script>
-        // Official Waterloo 2024 BCC Grades 9 & 10 Exam Questions
+        // Standard ASCII Code Block Configuration
         var questionBank = {
             easy: [
                 { 
-                    q: "PUZZLE: Beaver Robot\n\nSTORY: Beaver Robot can say sentences containing exactly 3 words.\n• The first word must be chosen from Box 1.\n• The second word must be chosen from Box 2.\n• The third word must be chosen from Box 3.\n\nBOX 1: [I, YOU, BEAVERS, CAN, HELP, PLEASE]\nBOX 2: [LOVE, LIKE, CAN, ME, HELP, NEED, YOU, US]\nBOX 3: [HELP, SWIM, CARROTS, LOVE, YOU, WATER]\n\nQUESTION: Which sentence below cannot be said by Beaver Robot?\n\n(A) CAN YOU HELP\n(B) BEAVERS CAN SWIM\n(C) I LOVE YOU\n(D) YOU NEED ME", 
-                    a: "OFFICIAL ANSWER: (D) YOU NEED ME\n\nEXPLANATION: The third word of the sentence must be chosen from Box 3. Looking at Box 3, the word 'ME' is not available. Therefore, Beaver Robot cannot say this sentence." 
+                    q: "PUZZLE: Beaver Robot\n\nSTORY: Beaver Robot can say sentences containing exactly 3 words.\n- The first word must be chosen from Box 1.\n- The second word must be chosen from Box 2.\n- The third word must be chosen from Box 3.\n\nBOX 1: [I, YOU, BEAVERS, CAN, HELP, PLEASE]\nBOX 2: [LOVE, LIKE, CAN, ME, HELP, NEED, YOU, US]\nBOX 3: [HELP, SWIM, CARROTS, LOVE, YOU, WATER]\n\nQUESTION: Which sentence below cannot be said by Beaver Robot?\n\n(A) CAN YOU HELP\n(B) BEAVERS CAN SWIM\n(C) I LOVE YOU\n(D) YOU NEED ME", 
+                    a: "OFFICIAL ANSWER: (D) YOU NEED ME\n\nEXPLANATION: The third word of the sentence must be chosen from Box 3. Looking at Box 3, the word ME is not available. Therefore, Beaver Robot cannot say this sentence." 
                 }
             ],
             medium: [
                 { 
-                    q: "PUZZLE: Book Return\n\nSTORY: At the Hardwood Library, book returns are processed by quantity. That is, the beaver with the fewest books to return is helped first.\n\nThe librarian can process one book per minute. After processing all of the books returned by a particular beaver, the librarian next helps the beaver waiting in line with the fewest books to return.\n\nFive beavers arrive in the morning:\n- Luciano (9:00 arrival, 4 books)\n- Rui (9:02 arrival, 6 books)\n- Cene (9:03 arrival, 3 books)\n- Manuel (9:05 arrival, 4 books)\n- Priscilla (9:12 arrival, 1 book)\n\nLuciano arrives right when the library opens, so the librarian processes Luciano’s books first.\n\nQUESTION: In which order will the beavers be helped?\n\n(A) Luciano, Rui, Cene, Manuel, Priscilla\n(B) Luciano, Cene, Rui, Manuel, Priscilla\n(C) Luciano, Cene, Manuel, Rui, Priscilla\n(D) Priscilla, Cene, Luciano, Manuel, Rui", 
-                    a: "OFFICIAL ANSWER: (C) Luciano, Cene, Manuel, Rui, Priscilla\n\nEXPLANATION:\n1. At 9:00, Luciano is the only one there and starts getting helped. His 4 books take 4 minutes (finished at 9:04).\n2. By 9:04, Rui (9:02) and Cene (9:03) have arrived. Cene has fewer books (3) than Rui (6), so Cene is helped next (takes 3 minutes, finished at 9:07).\n3. By 9:05, Manuel arrives. At 9:07, the librarian compares the remaining line: Manuel (4 books) vs Rui (6 books). Manuel is smaller, so Manuel is helped next (takes 4 minutes, finished at 9:11).\n4. At 9:11, only Rui is in line, so his processing begins (finished at 9:17). Meanwhile, Priscilla arrives at 9:12 and is processed last." 
+                    q: "PUZZLE: Book Return\n\nSTORY: At the Hardwood Library, book returns are processed by quantity. That is, the beaver with the fewest books to return is helped first.\n\nThe librarian can process one book per minute. After processing all of the books returned by a particular beaver, the librarian next helps the beaver waiting in line with the fewest books to return.\n\nFive beavers arrive in the morning:\n- Luciano (9:00 arrival, 4 books)\n- Rui (9:02 arrival, 6 books)\n- Cene (9:03 arrival, 3 books)\n- Manuel (9:05 arrival, 4 books)\n- Priscilla (9:12 arrival, 1 book)\n\nLuciano arrives right when the library opens, so the librarian processes Lucianos books first.\n\nQUESTION: In which order will the beavers be helped?\n\n(A) Luciano, Rui, Cene, Manuel, Priscilla\n(B) Luciano, Cene, Rui, Manuel, Priscilla\n(C) Luciano, Cene, Manuel, Rui, Priscilla\n(D) Priscilla, Cene, Luciano, Manuel, Rui", 
+                    a: "OFFICIAL ANSWER: (C) Luciano, Cene, Manuel, Rui, Priscilla\n\nEXPLANATION:\n1. At 9:00, Luciano is the only one there. His 4 books take 4 minutes (finished at 9:04).\n2. By 9:04, Rui and Cene have arrived. Cene has fewer books (3) than Rui (6), so Cene is helped next (finished at 9:07).\n3. By 9:05, Manuel arrives. At 9:07, the librarian compares the line: Manuel (4 books) vs Rui (6 books). Manuel is smaller, so Manuel goes next (finished at 9:11).\n4. At 9:11, only Rui is in line, so his processing begins (finished at 9:17). Priscilla arrives at 9:12 and is processed last." 
                 }
             ],
             hard: [
                 { 
-                    q: "PUZZLE: Finding Treasure\n\nSTORY: Captain Bojana is looking for a treasure hidden on an island. The island is divided into 16 regions, each marked with a letter from A to P.\n\nCaptain Bojana can enter any number of regions into a special device and the device will tell her whether or not the treasure is in one of those regions. For example, if she enters regions A, C, and D into the device and the device shows 'yes', then the treasure is in exactly one of regions A, C, or D.\n\nQUESTION: What is the least number of times Captain Bojana needs to use the device to guarantee she will determine which region contains the treasure?\n\n(A) 4\n(B) 6\n(C) 8\n(D) 12", 
-                    a: "OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: This is a classic Binary Search pattern. Since there are 16 regions, she can divide the options exactly in half with each scan:\n- Scan 1: Group 8 regions together. If 'yes', it is in those 8; if 'no', it is in the other 8.\n- Scan 2: Group 4 regions from the remaining suspect set.\n- Scan 3: Group 2 regions from the remaining suspect set.\n- Scan 4: Test 1 region from the final remaining pair to uniquely isolate the treasure. Log2(16) calculation passes guarantees success in 4 steps." 
+                    q: "PUZZLE: Finding Treasure\n\nSTORY: Captain Bojana is looking for a treasure hidden on an island. The island is divided into 16 regions, each marked with a letter from A to P.\n\nCaptain Bojana can enter any number of regions into a special device and the device will tell her whether or not the treasure is in one of those regions. For example, if she enters regions A, C, and D into the device and the device shows yes, then the treasure is in exactly one of regions A, C, or D.\n\nQUESTION: What is the least number of times Captain Bojana needs to use the device to guarantee she will determine which region contains the treasure?\n\n(A) 4\n(B) 6\n(C) 8\n(D) 12", 
+                    a: "OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: This demonstrates a Binary Search pattern. Since there are 16 regions, she can divide the options exactly in half with each scan:\n- Scan 1: Group 8 regions together. If yes, it is in those 8; if no, it is in the other 8.\n- Scan 2: Group 4 regions from the remaining set.\n- Scan 3: Group 2 regions from the remaining set.\n- Scan 4: Test 1 region from the final remaining pair to isolate the treasure. This takes exactly 4 steps." 
                 }
             ]
         };
@@ -215,9 +215,10 @@
 
         function nextQuestion() {
             var questions = questionBank[currentLevel];
-var randomIndex = Math.floor(Math.random() * questions.length);
-currentQuestionObj = questions[randomIndex];
-document.getElementById('question-text').innerText = currentQuestionObj.q;
+            var randomIndex = Math.floor(Math.random() * questions.length);
+            currentQuestionObj = questions[randomIndex];
+            
+            document.getElementById('question-text').innerText = currentQuestionObj.q;
 var answerElement = document.getElementById('answer-text');
 answerElement.innerText = currentQuestionObj.a;
 answerElement.classList.add('hidden');
