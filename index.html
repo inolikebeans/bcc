@@ -89,58 +89,9 @@
                     a: "OFFICIAL ANSWER: (B) Tuesday\n\nEXPLANATION: This represents an Intersection operation on two sets. Tuesday is the only element common to both sets of available days." 
                 }
             ],
-            border: [], // Backwards compatibility protection
             hard: [
                 { 
                     q: "STORY: A magical fruit processing box runs nested word substitution functions. The transformation rules state that function M(x) replaces a specific fruit string with its master parent tree grouping.\n\nQUESTION: If you execute a nested string evaluation sequence structured exactly as M(M(M(M(M(banana))))), what terminal classification category asset is ultimately output at the end of the 5th recursive calculation loop?\n\n(A) Banana\n(B) Yellow Fruit\n(C) Pear\n(D) Seed Plant Root", 
                     a: "OFFICIAL ANSWER: (C) Pear\n\nEXPLANATION: Tracking the step-by-step structural definition tree given in the official Waterloo document, parsing the 5 functional translation loops routes the target string directly to 'Pear'." 
                 },
-{
-q: "STORY: Rory is stringing beads onto a wire tube. The physical layout constraint rules dictate that a new bead can only be added if its numeric print value is strictly greater than the value of the previous bead already on the wire.\n\nQUESTION: If Rory has a mixed jar of tracking beads labeled [1, 3, 2, 4, 6, 7, 9], what is the maximum number of beads he can successfully string onto the wire?\n\n(A) 4 beads\n(B) 5 beads\n(C) 6 beads\n(D) 7 beads",
-a: "OFFICIAL ANSWER: (C) 6 beads\n\nEXPLANATION: This maps to the Longest Increasing Subsequence problem. The longest valid chain matching the constraint rules uses 6 beads: either [1, 2, 4, 6, 7, 9] or [1, 3, 4, 6, 7, 9]."
-},
-{
-q: "STORY: A logic grid track routes trains across a local transit network map. The target scheduling rule checks network saturation and calculates path capacities.\n\nQUESTION: According to the official graph metrics, what is the maximum number of trains that can safely navigate the system daily from Quandaria to Pixleton without path blockages?\n\n(A) 12\n(B) 13\n(C) 16\n(D) 19",
-a: "OFFICIAL ANSWER: (B) 13\n\nEXPLANATION: This solves a Maximum Flow Network problem. Calculating bottleneck points across the connecting rail lines establishes that the maximum capacity saturation point is exactly 13 units."
-},
-{
-q: "STORY: Captain Bojana is using a testing sensor device to locate hidden treasure across an island split into 16 grid regions (A through P). When she inputs a grouping of coordinates, the sensor returns a binary flag: 1 if the treasure is inside that group, and 0 if it is completely absent.\n\nQUESTION: What is the minimum number of device scans required to guarantee finding the exact location of the treasure box?\n\n(A) 4\n(B) 8\n(C) 12\n(D) 16",
-a: "OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: This demonstrates a Binary Search pattern. By dividing the 16 regions in half each time (8, then 4, then 2, then 1), log₂(16) calculation passes guarantees finding the target item in exactly 4 steps."
-},
-{
-q: "STORY: A system tracks hermit crabs searching for fitting shells. Crabs will only move into empty shells that match their specific dimensional requirements. \n\nQUESTION: If a complex matching map features 9 crabs and a limited pool of shell assets, what is the absolute maximum number of crabs that can be successfully matched to shells simultaneously without overlap?\n\n(A) 6\n(B) 7\n(C) 8\n(D) 9",
-a: "OFFICIAL ANSWER: (B) 7\n\nEXPLANATION: This utilizes a Maximum Bipartite Matching algorithm. Mapping out the cross-compatibility matrices shows that resource limits constrain the optimal allocation layout to exactly 7 successful assignments."
-}
-]
-};
-let currentLevel = '';
-let currentQuestionObj = null;
-function startQuiz(level) {
-currentLevel = level;
-document.getElementById('difficulty-screen').classList.add('hidden');
-document.getElementById('flashcard-screen').classList.remove('hidden');
-const badge = document.getElementById('level-badge');
-badge.innerText = level === 'easy' ? 'Part A (Easy)' : level === 'medium' ? 'Part B (Medium)' : 'Part C (Hard)';
-badge.className = badge ${level};
-nextQuestion();
-}
-function nextQuestion() {
-const questions = questionBank[currentLevel];
-const randomIndex = Math.floor(Math.random() * questions.length);
-currentQuestionObj = questions[randomIndex];
-document.getElementById('question-text').innerText = currentQuestionObj.q;
-const answerElement = document.getElementById('answer-text');
-answerElement.innerText = currentQuestionObj.a;
-answerElement.classList.add('hidden-answer');
-document.getElementById('reveal-btn').classList.remove('hidden');
-document.getElementById('next-btn').classList.add('hidden');
-}
-function revealAnswer() {
-document.getElementById('answer-text').classList.remove('hidden-answer');
-document.getElementById('reveal-btn').classList.add('hidden');
-document.getElementById('next-btn').classList.remove('hidden');
-}
-function goBack() {
-document.getElementById('difficulty-screen').classList.remove('hidden');
-document.getElementById('flashcard-screen').classList.add('hidden');
-}
+                {
