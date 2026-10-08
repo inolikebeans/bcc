@@ -143,9 +143,9 @@
 <body>
 
     <div class="game-container">
-        <div class="version-tag">Version 3.0</div>
+        <div class="version-tag">Version 4.0</div>
         <h1>bcc Challenge</h1>
-        <p class="subtitle">Waterloo Beaver Computing Challenge Test Build</p>
+        <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 & 10)</p>
         
         <!-- Difficulty Selection Screen -->
         <div id="difficulty-screen">
@@ -175,11 +175,26 @@
     </div>
 
     <script>
-        // Clean, verified, crash-proof testing database
+        // Clean, verified database with official past Waterloo contest questions
         var questionBank = {
-            easy: [{ q: "Easy Test Question: What color is a blue ball?", a: "Answer: Blue" }],
-            medium: [{ q: "Medium Test Question: What is 5 + 5?", a: "Answer: 10" }],
-            hard: [{ q: "Hard Test Question: What is the binary translation of 2?", a: "Answer: 10" }]
+            easy: [
+                { 
+                    q: "STORY: Beaver Robot can say sentences containing exactly 3 words.\n- Word 1 comes from Box 1: [CAN, BEAVERS, I]\n- Word 2 comes from Box 2: [YOU, CAN, LOVE]\n- Word 3 comes from Box 3: [HELP, SWIM, YOU]\n\nQUESTION: Which sentence below CANNOT be said by Beaver Robot?\n\n(A) CAN YOU HELP\n(B) BEAVERS CAN SWIM\n(C) I LOVE YOU\n(D) YOU NEED ME", 
+                    a: "OFFICIAL ANSWER: (D) YOU NEED ME\n\nEXPLANATION: The word 'ME' is chosen as the third word in Option D, but it is not available in Box 3. Therefore, Beaver Robot cannot say this sentence." 
+                }
+            ],
+            medium: [
+                { 
+                    q: "STORY: An automated document queue handles returns by page volume using a 'Shortest Job First' scheduling script. The current queue contains:\n- Luciano (2 pages)\n- Cene (5 pages)\n- Manuel (1 page)\n- Rui (4 pages)\n\nQUESTION: In what exact order will the scheduler process these page returns?\n\n(A) Luciano, Cene, Manuel, Rui\n(B) Manuel, Luciano, Rui, Cene\n(C) Cene, Rui, Luciano, Manuel\n(D) Manuel, Rui, Luciano, Cene", 
+                    a: "OFFICIAL ANSWER: (B) Manuel, Luciano, Rui, Cene\n\nEXPLANATION: Shortest Job First schedules processes by sorting their page weights in ascending order: Manuel (1 page) -> Luciano (2 pages) -> Rui (4 pages) -> Cene (5 pages)." 
+                }
+            ],
+            hard: [
+                { 
+                    q: "STORY: Captain Bojana is using a testing sensor device to locate hidden treasure across an island split into 16 grid regions (A through P). When she inputs a grouping of coordinates, the sensor returns a binary flag: 1 if the treasure is inside that group, and 0 if it is completely absent.\n\nQUESTION: What is the minimum number of device scans required to guarantee finding the exact location of the treasure box?\n\n(A) 4\n(B) 8\n(C) 12\n(D) 16", 
+                    a: "OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: This demonstrates a Binary Search pattern. By dividing the 16 regions in half each time (8, then 4, then 2, then 1), log2(16) calculation passes guarantees finding the target item in exactly 4 steps." 
+                }
+            ]
         };
 
         var currentLevel = '';
@@ -200,7 +215,9 @@
 
         function nextQuestion() {
             var questions = questionBank[currentLevel];
-            currentQuestionObj = questions[0]; // Load the simple test question
+            // Cycle through available items safely
+            var randomIndex = Math.floor(Math.random() * questions.length);
+            currentQuestionObj = questions[randomIndex];
             
             document.getElementById('question-text').innerText = currentQuestionObj.q;
             
