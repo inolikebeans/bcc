@@ -5,147 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bcc</title>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background: #f4f7f6;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .game-container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 480px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            box-sizing: border-box;
-        }
-
-        .version-tag {
-            position: absolute;
-            top: 12px;
-            left: 15px;
-            font-size: 0.7rem;
-            color: #bbb;
-            font-weight: bold;
-            font-family: monospace;
-        }
-
-        h1 {
-            margin-bottom: 5px;
-            color: #1a1a1a;
-            font-size: 2rem;
-            margin-top: 10px;
-        }
-
-        .subtitle {
-            color: #777;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 14px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            z-index: 20;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
+        html, body { height: 100%; margin: 0; padding: 0; background: #f4f7f6; }
+        body { font-family: sans-serif; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .game-container { background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); width: 100%; max-width: 480px; text-align: center; position: relative; z-index: 10; box-sizing: border-box; }
+        .version-tag { position: absolute; top: 12px; left: 15px; font-size: 0.7rem; color: #bbb; font-weight: bold; font-family: monospace; }
+        h1 { margin-bottom: 5px; color: #1a1a1a; font-size: 2rem; margin-top: 10px; }
+        .subtitle { color: #777; margin-top: 0; margin-bottom: 25px; font-size: 0.95rem; }
+        .button-group { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+        .btn { padding: 14px 20px; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; z-index: 20; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .easy { background-color: #2ec4b6; color: white; }
         .medium { background-color: #ff9f1c; color: white; }
         .hard { background-color: #e71d36; color: white; }
         .action { background-color: #4361ee; color: white; width: 100%; }
         .next { background-color: #4cc9f0; color: #1a1a1a; width: 100%; }
-
-        .back {
-            background: none;
-            color: #777;
-            font-size: 0.85rem;
-            margin-top: 25px;
-            padding: 5px;
-            width: auto;
-        }
-
-        .card {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 30px 20px;
-            margin: 20px 0;
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #question-text, #answer-text {
-            font-size: 1.1rem;
-            font-weight: 500;
-            line-height: 1.5;
-            text-align: left;
-            width: 100%;
-            white-space: pre-line;
-        }
-
-        #answer-text {
-            color: #2b9348;
-            font-weight: bold;
-            margin-top: 15px;
-            border-top: 1px dashed #ccc;
-            padding-top: 15px;
-        }
-
-        .hidden { 
-            display: none !important; 
-        }
-
-        .badge {
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+        .back { background: none; color: #777; font-size: 0.85rem; margin-top: 25px; padding: 5px; width: auto; }
+        .card { background: #f8f9fa; border: 2px solid #e9ecef; border-radius: 10px; padding: 30px 20px; margin: 20px 0; min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        #question-text, #answer-text { font-size: 1.1rem; font-weight: 500; line-height: 1.5; text-align: left; width: 100%; white-space: pre-line; }
+        #answer-text { color: #2b9348; font-weight: bold; margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 15px; }
+        .hidden { display: none !important; }
+        .badge { padding: 4px 10px; font-size: 0.75rem; border-radius: 50px; font-weight: bold; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
     <div class="game-container">
-        <div class="version-tag">Version 7.0</div>
+        <div class="version-tag">Version 8.0</div>
         <h1>bcc Challenge</h1>
-        <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 and 10)</p>
+        <p class="subtitle">Official Waterloo Beaver Computing Challenge (Grades 9 & 10)</p>
         
         <!-- Difficulty Selection Screen -->
         <div id="difficulty-screen">
@@ -164,36 +51,27 @@
             </div>
             <div class="card">
                 <p id="question-text">Question goes here...</p>
-                <p id="answer-text" class="hidden">Answer goes here...</p>
+                <div id="answer-text" class="hidden">Answer goes here...</div>
             </div>
             <div class="action-buttons">
                 <button id="reveal-btn" class="btn action" onclick="revealAnswer()">Reveal Answer</button>
                 <button id="next-btn" class="btn next hidden" onclick="nextQuestion()">Next Question</button>
             </div>
-            <button class="btn back" onclick="goBack()">Choose Another Level</button>
+            <button class="btn back" onclick="goBack()">&larr; Choose Another Level</button>
         </div>
     </div>
 
     <script>
-        // Standard ASCII Code Block Configuration
+        // STRICT RULE: All data strings must be short and stay completely on one line.
         var questionBank = {
             easy: [
-                { 
-                    q: "PUZZLE: Beaver Robot\n\nSTORY: Beaver Robot can say sentences containing exactly 3 words.\n- The first word must be chosen from Box 1.\n- The second word must be chosen from Box 2.\n- The third word must be chosen from Box 3.\n\nBOX 1: [I, YOU, BEAVERS, CAN, HELP, PLEASE]\nBOX 2: [LOVE, LIKE, CAN, ME, HELP, NEED, YOU, US]\nBOX 3: [HELP, SWIM, CARROTS, LOVE, YOU, WATER]\n\nQUESTION: Which sentence below cannot be said by Beaver Robot?\n\n(A) CAN YOU HELP\n(B) BEAVERS CAN SWIM\n(C) I LOVE YOU\n(D) YOU NEED ME", 
-                    a: "OFFICIAL ANSWER: (D) YOU NEED ME\n\nEXPLANATION: The third word of the sentence must be chosen from Box 3. Looking at Box 3, the word ME is not available. Therefore, Beaver Robot cannot say this sentence." 
-                }
+                { q: "BCC Part A: Box 1 [CAN, BEAVERS, I], Box 2 [LOVE, LIKE, NEED], Box 3 [HELP, SWIM, WATER]. Which sentence is impossible?\n\n(A) I LOVE WATER\n(B) BEAVERS NEED HELP\n(C) YOU NEED ME", a: "ANSWER: (C) YOU NEED ME\n\nExplanation: 'ME' is not an available word option inside Box 3." }
             ],
             medium: [
-                { 
-                    q: "PUZZLE: Book Return\n\nSTORY: At the Hardwood Library, book returns are processed by quantity. That is, the beaver with the fewest books to return is helped first.\n\nThe librarian can process one book per minute. After processing all of the books returned by a particular beaver, the librarian next helps the beaver waiting in line with the fewest books to return.\n\nFive beavers arrive in the morning:\n- Luciano (9:00 arrival, 4 books)\n- Rui (9:02 arrival, 6 books)\n- Cene (9:03 arrival, 3 books)\n- Manuel (9:05 arrival, 4 books)\n- Priscilla (9:12 arrival, 1 book)\n\nLuciano arrives right when the library opens, so the librarian processes Lucianos books first.\n\nQUESTION: In which order will the beavers be helped?\n\n(A) Luciano, Rui, Cene, Manuel, Priscilla\n(B) Luciano, Cene, Rui, Manuel, Priscilla\n(C) Luciano, Cene, Manuel, Rui, Priscilla\n(D) Priscilla, Cene, Luciano, Manuel, Rui", 
-                    a: "OFFICIAL ANSWER: (C) Luciano, Cene, Manuel, Rui, Priscilla\n\nEXPLANATION:\n1. At 9:00, Luciano is the only one there. His 4 books take 4 minutes (finished at 9:04).\n2. By 9:04, Rui and Cene have arrived. Cene has fewer books (3) than Rui (6), so Cene is helped next (finished at 9:07).\n3. By 9:05, Manuel arrives. At 9:07, the librarian compares the line: Manuel (4 books) vs Rui (6 books). Manuel is smaller, so Manuel goes next (finished at 9:11).\n4. At 9:11, only Rui is in line, so his processing begins (finished at 9:17). Priscilla arrives at 9:12 and is processed last." 
-                }
+                { q: "BCC Part B: Line queue handles book returns by lowest quantity first. Luciano (4 books), Rui (6 books), Cene (3 books). Who gets helped second if Luciano starts first?\n\n(A) Luciano\n(B) Rui\n(C) Cene", a: "ANSWER: (C) Cene\n\nExplanation: Cene has only 3 books remaining to process, which is lower than Rui's 6 books." }
             ],
             hard: [
-                { 
-                    q: "PUZZLE: Finding Treasure\n\nSTORY: Captain Bojana is looking for a treasure hidden on an island. The island is divided into 16 regions, each marked with a letter from A to P.\n\nCaptain Bojana can enter any number of regions into a special device and the device will tell her whether or not the treasure is in one of those regions. For example, if she enters regions A, C, and D into the device and the device shows yes, then the treasure is in exactly one of regions A, C, or D.\n\nQUESTION: What is the least number of times Captain Bojana needs to use the device to guarantee she will determine which region contains the treasure?\n\n(A) 4\n(B) 6\n(C) 8\n(D) 12", 
-                    a: "OFFICIAL ANSWER: (A) 4\n\nEXPLANATION: This demonstrates a Binary Search pattern. Since there are 16 regions, she can divide the options exactly in half with each scan:\n- Scan 1: Group 8 regions together. If yes, it is in those 8; if no, it is in the other 8.\n- Scan 2: Group 4 regions from the remaining set.\n- Scan 3: Group 2 regions from the remaining set.\n- Scan 4: Test 1 region from the final remaining pair to isolate the treasure. This takes exactly 4 steps." 
-                }
+                { q: "BCC Part C: An island has 16 grids. A device splits scanning zones in half, telling you 'yes' or 'no' if treasure is inside. What is the least number of scans needed to find the exact grid?\n\n(A) 4\n(B) 8\n(C) 16", a: "ANSWER: (A) 4\n\nExplanation: This is a binary search. Cutting 16 options in half repeatedly (16 -> 8 -> 4 -> 2 -> 1) takes exactly 4 steps." }
             ]
         };
 
@@ -219,18 +97,25 @@
             currentQuestionObj = questions[randomIndex];
             
             document.getElementById('question-text').innerText = currentQuestionObj.q;
-var answerElement = document.getElementById('answer-text');
-answerElement.innerText = currentQuestionObj.a;
-answerElement.classList.add('hidden');
-document.getElementById('reveal-btn').classList.remove('hidden');
-document.getElementById('next-btn').classList.add('hidden');
-}
-function revealAnswer() {
-document.getElementById('answer-text').classList.remove('hidden');
-document.getElementById('reveal-btn').classList.add('hidden');
-document.getElementById('next-btn').classList.remove('hidden');
-}
-function goBack() {
-document.getElementById('flashcard-screen').classList.add('hidden');
-document.getElementById('difficulty-screen').classList.remove('hidden');
-}
+            
+            var answerElement = document.getElementById('answer-text');
+            answerElement.innerText = currentQuestionObj.a;
+            answerElement.classList.add('hidden');
+            
+            document.getElementById('reveal-btn').classList.remove('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function revealAnswer() {
+            document.getElementById('answer-text').classList.remove('hidden');
+            document.getElementById('reveal-btn').classList.add('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.getElementById('flashcard-screen').classList.add('hidden');
+            document.getElementById('difficulty-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
