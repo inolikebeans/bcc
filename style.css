@@ -1,0 +1,149 @@
+```css
+/* Custom Modern Minimalist Stylesheet */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #1a1a1a;
+    font-size: 2rem;
+}
+
+.subtitle {
+    color: #777;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Button Foundation Styling */
+.btn {
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Color Coding for Difficulty System */
+.easy { background-color: #2ec4b6; color: white; }
+.medium { background-color: #ff9f1c; color: white; }
+.hard { background-color: #e71d36; color: white; }
+
+.action {
+    background-color: #4361ee;
+    color: white;
+    width: 100%;
+}
+
+.next {
+    background-color: #4cc9f0;
+    color: #1a1a1a;
+    width: 100%;
+}
+
+.back {
+    background: none;
+    color: #777;
+    font-size: 0.85rem;
+    margin-top: 25px;
+    padding: 5px;
+}
+.back:hover {
+    color: #1a1a1a;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Interactive Card Layout */
+.card {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 30px 20px;
+    margin: 20px 0;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#question-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+    white-space: pre-line;
+    text-align: left;
+}
+
+#answer-text {
+    font-size: 1.1rem;
+    color: #2b9348;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+    white-space: pre-line;
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+    width: 100%;
+    text-align: left;
+    transition: opacity 0.3s ease;
+}
+
+/* Visibility Control Utility Classes */
+.hidden-answer {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.hidden { display: none !important; }
+
+.action-buttons {
+    min-height: 50px;
+    margin-top: 15px;
+}
+
+.badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
