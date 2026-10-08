@@ -187,7 +187,7 @@
 
     <script>
         // Official Waterloo BCC Grade 9/10 Examination Database (45 Complete Questions)
-        const questionBank = {
+        var questionBank = {
             easy: [
                 { 
                     q: "STORY: Beaver Robot can say sentences containing exactly 3 words. \n• Word 1 comes from Box 1: [CAN, BEAVERS, I]\n• Word 2 comes from Box 2: [YOU, CAN, LOVE]\n• Word 3 comes from Box 3: [HELP, SWIM, YOU]\n\nQUESTION: Which sentence below CANNOT be said by Beaver Robot?\n\n(A) CAN YOU HELP\n(B) BEAVERS CAN SWIM\n(C) I LOVE YOU\n(D) YOU NEED ME", 
@@ -248,7 +248,7 @@ a: "OFFICIAL ANSWER: (B) Tuesday\n\nEXPLANATION: This is a set intersection oper
 { q: "STORY: An array tracks positions 1 through 5 in a circular pattern. Moving past position 5 loops the pointer back to index position 1.\n\nQUESTION: If a process starts scanning at position 3 and advances forward 4 index tracking slots, what position does it target?\n\n(A) Position 1\n(B) Position 2\n(C) Position 3\n(D) Position 4", a: "OFFICIAL ANSWER: (B) Position 2\n\nEXPLANATION: Counting positions circularly: 3 -> 4 -> 5 -> 1 -> 2. The fourth incremental step hits index position 2." },
 { q: "STORY: A storage container holds 3 boxes stacked vertically: Red (bottom), Green (middle), Blue (top). You can only interact with the top box.\n\nQUESTION: What box sequence remains inside the stack container if you perform 1 remove operation followed by inserting a Yellow box?\n\n(A) Red, Green, Yellow\n(B) Yellow, Green, Red\n(C) Red, Yellow, Blue\n(D) Green, Blue, Yellow", a: "OFFICIAL ANSWER: (A) Red, Green, Yellow\n\nEXPLANATION: Removing an item extracts Blue from the top. Inserting Yellow pushes it onto the newly exposed Green box, changing the stack to Red (bottom), Green (middle), Yellow (top)." },
 { q: "STORY: A simple encoding table switches characters: X -> M, Y -> N, Z -> O. \n\nQUESTION: What is the encoded output string if a user parses 'YXZ'?\n\n(A) NMO\n(B) MON\n(C) OMN\n(D) NOM", a: "OFFICIAL ANSWER: (A) NMO\n\nEXPLANATION: Mapping variables directly via lookup properties: Y becomes N, X becomes M, and Z becomes O. Combining them gives NMO." },
-{ q: "STORY: A sorting machine processes numbers. It checks pairs from left to right and swaps them if the left number is strictly greater than the right number.\n\nQUESTION: What is the array state after the very first comparison and conditional swap pass occurs on the first pair of [5, 2, 8, 1]?\n\n(A) [2, 5, 8, 1]\n(B) [5, 2, 1, 8]\n(C) [1, 2, 8, 5]\n(D) [2, 5, 1, 8]", a: "OFFICIAL ANSWER: (A) [2, 5, 8, 1]\n\nEXPLANATION: The machine evaluates the first pair index. Because 5 > 2, it executes a swap instruction, updating the memory block to [2, 5, 8, 1]." },
+{ q: "STORY: A sorting machine processes numbers. It checks pairs from left to right and swaps them if the left number is strictly greater than the right number. Input options: [5, 2, 9].\n\nQUESTION: What is the array state after the very first comparison and conditional swap pass occurs on the first pair?\n\n(A) [2, 5, 9]\n(B) [5, 2, 9]\n(C) [9, 2, 5]\n(D) [2, 9, 5]", a: "OFFICIAL ANSWER: (A) [2, 5, 9]\n\nEXPLANATION: The machine evaluates the first pair index. Because 5 > 2, it executes a swap instruction, updating the memory block to [2, 5, 9]." },
 { q: "STORY: A scheduling logic grid tracks meetings: Room 1 (1:00-2:00), Room 2 (1:30-2:30). A coordinator needs a quiet space running continuously from 1:15 to 1:45.\n\nQUESTION: Which room allocation slot conflicts with this tracking request?\n\n(A) Room 1\n(B) Room 2\n(C) Both Room 1 and Room 2\n(D) Neither", a: "OFFICIAL ANSWER: (C) Both Room 1 and Room 2\n\nEXPLANATION: The request window (1:15-1:45) overlaps with both Room 1's duration and Room 2's booking interval, triggering a system scheduling conflict on both lines." },
 { q: "STORY: A variable mapping rule replaces sequences: every single occurrence of the string 'ab' is automatically expanded into 'bba'.\n\nQUESTION: What does the data string 'abc' transform into after 1 parsing translation sweep completes?\n\n(A) bbac\n(B) abbc\n(C) cabb\n(D) bbaa", a: "OFFICIAL ANSWER: (A) bbac\n\nEXPLANATION: The system targets the match segment 'ab' and rewrites it to 'bba'. The trailing symbol 'c' is unaffected, yielding bbac." }
 ],
@@ -293,7 +293,6 @@ var labelText = 'Part A (Easy)';
 if (level === 'medium') { labelText = 'Part B (Medium)'; }
 else if (level === 'hard') { labelText = 'Part C (Hard)'; }
 var root = document.getElementById('app-view');
-// Clean concat string replaces the broken backslash escape templates entirely
 root.innerHTML = [
 '',
 '',
