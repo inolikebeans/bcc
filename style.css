@@ -1,5 +1,12 @@
+### 2. The Fixed CSS File (`style.css`)
 ```css
 /* Custom Modern Minimalist Stylesheet */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: #f4f7f6;
@@ -8,7 +15,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
 }
 
 .game-container {
@@ -19,6 +25,7 @@ body {
     width: 100%;
     max-width: 480px;
     text-align: center;
+    box-sizing: border-box; /* Ensures padding doesn't distort scaling widths */
 }
 
 h1 {
